@@ -5,8 +5,10 @@ include_once 'Connexion.php';
 try
 
 {
+    header('Access-Control-Allow-Origin: *');
 
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+/*    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $sql = "UPDATE `newtable` SET `id`= 'Dubois' , `prenom` = 'Thierry' , `email` = 'duboisthierry@gmail.com' WHERE `id` = 1" ;
 
@@ -20,8 +22,10 @@ $sql = "UPDATE `newtable` SET `id`= 'Dubois' , `prenom` = 'Thierry' , `email` = 
 
 echo "Record has been successfully updated";
 
-}
-
+}*/
+$data = json_decode(file_get_contents('php://input'),true);
+//print_r($data['candidat']);
+echo  json_encode("amal");
 }
 
 catch (PDOException $e)

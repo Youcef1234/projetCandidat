@@ -15,7 +15,7 @@ app.controller('listeCandidats', function ($http, $scope) {
 */
     $http({
         method : "GET",
-        url : "http://localhost/Projet31juillet1/database/Select.php",
+        url : "http://localhost/projetCandidat/database/select.php",
         headers: {
             'Accept': '*.*',
             'Content-Type': 'application/json'
@@ -30,9 +30,31 @@ app.controller('listeCandidats', function ($http, $scope) {
         console.log(response)
     });
 
+})
+.controller('operationUtilisateur', function($http, $scope){
+    $scope.modifier=function(){ 
+        $http({
+            method : "POST",
+            url : "http://localhost/projetCandidat/database/update.php",
+            headers: {
+                'Accept': '*.*',
+                'Content-Type': 'application/json'
+            },
+            data:{"candidat":$scope.Candidat},
+            
+        }).then(function onSuccess(response ) {
+            //$scope.lescandidats = response.data.mydb;
+            
+            console.log(response)
+
+        }).catch(function onError(response) {
+            // Handle error
+            console.warn("error getting data");
+            console.log(response)
+        });
+    };
 });
 
 app.config(['$qProvider', function ($qProvider) {
     $qProvider.errorOnUnhandledRejections(false);
 }]);
-
