@@ -11,15 +11,7 @@ try
 
     $req=$conn->prepare("
       SELECT * 
-      FROM candidat c 
-      JOIN competence ce 
-        ON c.idcompet= ce.idcompetence 
-      JOIN diplome dip 
-        ON c.iddiplome = dip.iddiplome 
-      JOIN experience_pro xpro 
-        ON c.idxpro=xpro.idexperience_pro 
-      JOIN langue l 
-        ON l.idlangue=c.idlangues
+      FROM candidat c where idcandidat=".$_GET['idcandid']."
     ");
 
     $req->execute();
@@ -37,20 +29,7 @@ try
             'adresse'=>$row['adresse'],
             'Code_Postal'=>$row['Code_Postal'],
             'Ville'=>$row['Ville'],
-            'Remarque'=>$row['Remarque'],
-            'com_nom'=>$row['com_nom'],
-            'com_evaluation'=>$row['com_evaluation'],
-            'com_commentaire'=>$row['com_commentaire'],
-            'type_diplome'=>$row['type_diplome'],
-            'date_obtention'=>$row['date_obtention'],
-            'dip_commentaire'=>$row['dip_commentaire'],
-            'employeur'=>$row['employeur'],
-            'debut_contrat'=>$row['debut_contrat'],
-            'fin_contrat'=>$row['fin_contrat'],
-            'xpro_Commentaire'=>$row['xpro_Commentaire'],
-            'l_nom'=>$row['l_nom'],
-            'l_evaluation'=>$row['l_evaluation'],
-            'l_commentaire'=>$row['l_commentaire']);
+            'Remarque'=>$row['Remarque']);
     }
 
   echo json_encode($d);

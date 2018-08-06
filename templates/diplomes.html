@@ -1,0 +1,22 @@
+<div class="container" ng-controller="listeCandidats">
+    <div class="col-offset-3 col-auto panel">
+    <h3 class="text-center">liste des personnes</h3>
+      <form class="form-well jumbotron" ng-repeat="Candidat in lescandidats">
+        <input hidden="true" type="text" class="form-control" ng-model="Candidat.idcandidat"/>
+
+        <div class="col-auto row form-group">
+            <label class="form-label col">TYPE DIPLOME</label><input type="text" ng-model="Candidat.type_diplome" />
+            <label class="form-label col">DATE obtention</label><input type="text" ng-model="Candidat.date_obtention" />
+        </div>
+        <div class="col-auto row form-group">
+            <label class="form-label col">Diplome commentaire</label><input type="text" ng-model="Candidat.dip_commentaire" />
+        </div>
+       
+        <div class="col-auto row form-group" ng-controller="operationUtilisateur">  
+            <input type="submit" ng-click="modifier()" class=" col-12 btn btn-success" value="valider Modif" />
+        </div>
+
+      </form>
+    </div>
+</div>
+
