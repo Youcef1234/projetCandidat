@@ -42,10 +42,11 @@ app.controller('listeCandidats', function ($http, $scope) {
     });
 })
 .controller('operationUtilisateur', function($http, $scope,$location){
-    $scope.consulterCandidat=function($parameter){ 
+    $scope.consulterCandidat=function($parameter){
+      console.log($parameter);
         $location.url('/unCandidat/'+$parameter);
     };
-    $scope.modifier=function(){ 
+    $scope.modifier=function(){
         $http({
             method : "POST",
             url : "http://localhost/projetCandidat/database/update.php",
@@ -54,10 +55,10 @@ app.controller('listeCandidats', function ($http, $scope) {
                 'Content-Type': 'application/json'
             },
             data:{"candidat":$scope.Candidat},
-            
+
         }).then(function onSuccess(response ) {
             //$scope.lescandidats = response.data.mydb;
-            
+
             console.log(response)
 
         }).catch(function onError(response) {
@@ -83,5 +84,3 @@ function($routeProvider) {
     });
 
 }]);
-  
-

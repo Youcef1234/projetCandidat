@@ -8,8 +8,8 @@
             <label class="form-label col" > NOM :</label><input type="text"  ng-model="Candidat.nom" />
             <label class="form-label col" > PRENOM:</label><input type="text" ng-model="Candidat.prenom" />
         </div>
-        <div class="col-auto row form-group" ng-controller="operationUtilisateur">  
-            <input type="submit" ng-click="consulterCandidat(C)" class=" col-12 btn btn-success" value="consulter " />
+        <div class="col-auto row form-group" ng-controller="operationUtilisateur">
+            <input type="submit" ng-click="consulterCandidat(Candidat.idcandidat)" class=" col-12 btn btn-success" value="consulter " />
         </div>
 
       </form>
