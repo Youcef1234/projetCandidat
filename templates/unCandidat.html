@@ -1,46 +1,89 @@
 <div class="container" ng-controller="unCandidat" >
-    <div class="col-offset-3 col-auto panel">
-    <h3 class="text-center">le candidat</h3>
-      <form class="form-well jumbotron" ng-repeat="Candidat in lescandidats">
-        <div class="col-offset-3 col-auto panel">
-              <form class="form-well jumbotron" ng-repeat="Candidat in lescandidats">
-                <input hidden="true" type="text" class="form-control" ng-model="Candidat.idcandidat"/>
-    
-                <div class="col-auto row form-group">
-                    <label class="form-label col" > NOM :</label><input type="text"  ng-model="Candidat.nom" />
-                    <label class="form-label col" > PRENOM:</label><input type="text" ng-model="Candidat.prenom" />
-                </div>
-    
-                <div class="col-auto row form-group">
-                    <label class="form-label col" > AGE:</label><input type="text" class="input" ng-model="Candidat.age" />
-                    <label class="form-label col"> DATA DE NAISSANCE: </label><input type="text" ng-model="Candidat.date_naissance" />
-                </div>
-    
-                <div class="col-auto row form-group">
-                    <label class="form-label col" > NATIONALITE:</label><input type="text" ng-model="Candidat.Nationalite" />
-                    <label class="form-label col" > ADRESSE:</label><input type="text"  ng-model="Candidat.adresse" />
-                </div>
-    
-                <div class="col-auto row form-group">
-                    <label class="form-label col" > VILLE:</label><input type="text"  ng-model="Candidat.Ville" />
-                
-                    <label class="form-label col" > CODE POSTAL:</label><input type="text"  ng-model="Candidat.Code_Postal" />
-                </div>
-                <div class="col-auto row form-group">
-                    <label class="form-label col" > EMAIL:</label><input type="text" ng-model="Candidat.email" />
-                    <label class="form-label col" > TEL:</label><input type="text" ng-model="Candidat.telephone" />
-                </div>
-                <div class="col-auto row form-group">
-                    <label class="form-label col" > REMARQUES:</label>
-                </div>
-                <div class="col-auto row form-group ">
-                    <textarea class="col-offset-3 col-12">
-                        {{Candidat.Remarque}}
-                    </textarea>
-                </div>
-                <div class="col-auto row form-group" ng-controller="operationUtilisateur">  
-                    <input type="submit" ng-click="modifier()" class=" col-12 btn btn-success" value="valider Modification" />
+    <div class="col-offset-3 panel">
+        <h3 class="text-center">le candidat</h3>
+        <form class="form-well jumbotron" id="idform">
+            <input hidden="true" type="text" class="form-control" 
+            ng-model="Candidat.idcandidat"/>
+
+            <div class="col-auto row form-group">
+                <label class="form-label col" > NOM :</label>
+                    <input type="text"  ng-model="Candidat.nom" />
+                <label class="form-label col" > PRENOM:</label>
+                    <input type="text" ng-model="Candidat.prenom" />
+            </div>
+
+            <div class="col-auto row form-group">
+                <label class="form-label col" > AGE:</label>
+                <input type="text" class="input" ng-model="Candidat.age" />
+                <label class="form-label col"> DATA DE NAISSANCE: </label>
+                <input type="text" ng-model="Candidat.date_naissance" />
+            </div>
+
+            <div class="col-auto row form-group">
+                <label class="form-label col" > NATIONALITE:</label>
+                <input type="text" ng-model="Candidat.Nationalite" />
+                <label class="form-label col" > ADRESSE:</label>
+                <input type="text"  ng-model="Candidat.adresse" />
+            </div>
+
+            <div class="col-auto row form-group">
+                <label class="form-label col" > VILLE:</label>
+                <input type="text"  ng-model="Candidat.Ville" />
+                <label class="form-label col" > CODE POSTAL:</label>
+                <input type="text"  ng-model="Candidat.Code_Postal" />
+            </div>
+            <div class="col-auto row form-group">
+                <label class="form-label col" > EMAIL:</label>
+                <input type="text" ng-model="Candidat.email" />
+                <label class="form-label col" > TEL:</label>
+                <input type="text" ng-model="Candidat.telephone" />
+            </div>
+            <div class="col-auto row form-group">
+            <label class="form-label col" > REMARQUES:{{Candidat.Remarque}}</label>
+            </div>
+            <div class="col-auto row form-group ">
+                <textarea ng-model="Candidat.Remarque" class="col-offset-3 col-12" form="idform">
+
+                </textarea>
+            </div>
+            <div class="col-auto row form-group" ng-controller="operationUtilisateur">  
+                <input type="submit" ng-click="modifier()" class=" col-12 btn btn-success" value="valider Modification" />
+            </div>
+        </form>
     </div>
-      </form>
+
+
+
+    <h3 class="text-center">les competences</h3>
+
+    <div class="row" ng-controller="competences">
+        <form class="form-well jumbotron" id="idformcom" ng-repeat="competence in lescompetences">
+            <input hidden="true" type="text" class="form-control" 
+            ng-model="competence.idcompetence"/>
+
+            <div class="col-auto row form-group">
+                <label class="form-label col" > TITRE :</label>
+                    <input type="text"  ng-model="competence.com_nom" />
+            </div>
+
+            <div class="col-auto row form-group">
+                <label class="form-label col" > EVAL:</label>
+                <input type="text" class="input" ng-model="competence.com_evaluation" />
+            </div>
+
+
+            <div class="col-auto row form-group">
+                <label class="form-label col" >COMMENTAIRE:{{competence.com_commentaire}}</label>
+            </div>
+            <div class="col-auto row form-group ">
+                <textarea ng-model="competence.com_commentaire" class="col-offset-3 col-12" form="idformcom">
+
+                </textarea>
+            </div>
+            <div class="col-auto row form-group" ng-controller="operationUtilisateur">  
+                <input type="submit" ng-click="modifierComp()" 
+                class=" col-12 btn btn-success" value="valider Modification" />
+            </div>
+        </form>
     </div>
 </div>

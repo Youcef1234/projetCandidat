@@ -32,7 +32,26 @@ app.controller('listeCandidats', function ($http, $scope) {
         },
         params:{"idcandid":$routeParams.idcandid},
     }).then(function onSuccess(response ) {
-        $scope.lescandidats = response.data.mydb;
+        $scope.Candidat = response.data.mydb;
+        console.log(response)
+
+    }).catch(function onError(response) {
+        // Handle error
+        console.warn("error getting data");
+        console.log(response)
+    });
+})
+.controller('competences', function ($http, $scope,$routeParams) {
+    $http({
+        method : "GET",
+        url : "http://localhost/projetCandidat/database/selectCompetences.php",
+        headers: {
+            'Accept': '*.*',
+            'Content-Type': 'application/json'
+        },
+        params:{"idcandid":$routeParams.idcandid},
+    }).then(function onSuccess(response) {
+        $scope.lescompetences = response.data.mydb;
         console.log(response)
 
     }).catch(function onError(response) {
@@ -57,7 +76,7 @@ app.controller('listeCandidats', function ($http, $scope) {
             data:{"candidat":$scope.Candidat},
 
         }).then(function onSuccess(response ) {
-            //$scope.lescandidats = response.data.mydb;
+            $scope.lescandidats = response.data.mydb;
 
             console.log(response)
 
@@ -69,8 +88,9 @@ app.controller('listeCandidats', function ($http, $scope) {
     };
 });
 
-app
-.config(['$routeProvider', '$locationProvider',
+
+
+app.config(['$routeProvider', '$locationProvider',
 function($routeProvider) {
   $routeProvider
     .when('/', {

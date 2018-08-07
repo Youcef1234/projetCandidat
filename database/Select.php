@@ -16,8 +16,8 @@ try
 
     $req->execute();
     $d=array();
-    foreach($req->fetchAll() as $row) {
-        $d['mydb'][]= array(
+    while($row=$req->fetch()) {
+        $d['mydb']= array(
             'idcandidat'=>$row['idcandidat'],
             'nom' =>$row['nom'],
             'prenom' =>$row['prenom'],
@@ -29,7 +29,8 @@ try
             'adresse'=>$row['adresse'],
             'Code_Postal'=>$row['Code_Postal'],
             'Ville'=>$row['Ville'],
-            'Remarque'=>$row['Remarque']);
+            'Remarque'=>$row['Remarque']
+        );
     }
 
   echo json_encode($d);
