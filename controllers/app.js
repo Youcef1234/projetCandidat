@@ -106,6 +106,9 @@ app.controller('listeCandidats', function ($http, $scope) {
             $scope.hidemeLang=false;
             $scope.showmeDip=false;
             $scope.showmeLang=false;
+            $scope.showmeCandid=false;
+            $scope.hidemeCandid=false;
+
         }
     }
         
@@ -130,11 +133,12 @@ app.controller('listeCandidats', function ($http, $scope) {
                 $scope.showmeCandid=true;
                 $scope.hidemeCandid=false;
                 $timeout(timer, 1000);       
+                console.log("ismail");
 
             }
             else{
-                $scope.hideme=true;
-                $scope.showme=false;
+                $scope.hidemeCandid=true;
+                $scope.showmeCandid=false;
             }
         }).catch(function onError(response) {
             // Handle error

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 06 août 2018 à 04:09
+-- Généré le :  sam. 11 août 2018 à 18:26
 -- Version du serveur :  5.7.19
 -- Version de PHP :  7.1.9
 
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `candidat` (
 --
 
 INSERT INTO `candidat` (`idcandidat`, `nom`, `prenom`, `age`, `date_naissance`, `Nationalite`, `email`, `telephone`, `adresse`, `Code_Postal`, `Ville`, `Remarque`) VALUES
-(1, 'Es Sadik', 'Hamza', 34, '1984-04-06', 'Francaise', 'hamzaessadik@gmail.com', 605040302, '17 rue des poilu', 57000, 'Metz', NULL);
+(1, 'Es Sadik', 'Hamza', 34, '1984-04-06', 'Francaise', 'hamzaessadik@gmail.com', 605040302, '17 rue des poilu', 57000, 'Metz', 'essadik wech frere');
 
 -- --------------------------------------------------------
 
@@ -67,6 +67,13 @@ CREATE TABLE IF NOT EXISTS `candidat_competences` (
   KEY `idcompet` (`idcompet`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `candidat_competences`
+--
+
+INSERT INTO `candidat_competences` (`idcandidat`, `idcompet`) VALUES
+(1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -81,6 +88,13 @@ CREATE TABLE IF NOT EXISTS `candidat_diplome` (
   KEY `idcandidat` (`idcandidat`),
   KEY `iddiplome` (`iddiplome`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `candidat_diplome`
+--
+
+INSERT INTO `candidat_diplome` (`idcandidat`, `iddiplome`) VALUES
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -100,6 +114,21 @@ CREATE TABLE IF NOT EXISTS `candidat_experience` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `candidat_interet`
+--
+
+DROP TABLE IF EXISTS `candidat_interet`;
+CREATE TABLE IF NOT EXISTS `candidat_interet` (
+  `idcandidat` int(11) NOT NULL,
+  `idinteret` int(11) NOT NULL,
+  PRIMARY KEY (`idcandidat`,`idinteret`),
+  KEY `idcandidat` (`idcandidat`),
+  KEY `idinteret` (`idinteret`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `candidat_langue`
 --
 
@@ -111,6 +140,13 @@ CREATE TABLE IF NOT EXISTS `candidat_langue` (
   KEY `idcandidat` (`idcandidat`),
   KEY `idlangue` (`idlangue`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `candidat_langue`
+--
+
+INSERT INTO `candidat_langue` (`idcandidat`, `idlangue`) VALUES
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -132,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `competence` (
 --
 
 INSERT INTO `competence` (`idcompetence`, `com_nom`, `com_evaluation`, `com_commentaire`) VALUES
-(1, 'CakePHP', 18, NULL);
+(1, 'CakePHP', 18, 'framework ');
 
 -- --------------------------------------------------------
 
@@ -154,7 +190,7 @@ CREATE TABLE IF NOT EXISTS `diplome` (
 --
 
 INSERT INTO `diplome` (`iddiplome`, `type_diplome`, `date_obtention`, `dip_commentaire`) VALUES
-(1, 'Master Informatique', '2004-07-04', 'Mention tres bien');
+(1, 'Master Informatique', '2004-07-07', 'Mention tres bien');
 
 -- --------------------------------------------------------
 
@@ -182,6 +218,27 @@ INSERT INTO `experience_pro` (`idexperience_pro`, `employeur`, `debut_contrat`, 
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `interet`
+--
+
+DROP TABLE IF EXISTS `interet`;
+CREATE TABLE IF NOT EXISTS `interet` (
+  `idinteret` int(100) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(40) NOT NULL,
+  `commentaire` text NOT NULL,
+  PRIMARY KEY (`idinteret`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `interet`
+--
+
+INSERT INTO `interet` (`idinteret`, `nom`, `commentaire`) VALUES
+(1, 'sport', 'la musculation');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `langue`
 --
 
@@ -199,7 +256,7 @@ CREATE TABLE IF NOT EXISTS `langue` (
 --
 
 INSERT INTO `langue` (`idlangue`, `l_nom`, `l_evaluation`, `l_commentaire`) VALUES
-(1, 'anglais', 19, 'Excellent');
+(1, 'anglais', 20, 'Excellent');
 
 -- --------------------------------------------------------
 
@@ -239,6 +296,13 @@ ALTER TABLE `candidat_diplome`
 ALTER TABLE `candidat_experience`
   ADD CONSTRAINT `candidat_experience_ibfk_1` FOREIGN KEY (`idcandidat`) REFERENCES `candidat` (`idcandidat`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `candidat_experience_ibfk_2` FOREIGN KEY (`idexperience`) REFERENCES `experience_pro` (`idexperience_pro`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `candidat_interet`
+--
+ALTER TABLE `candidat_interet`
+  ADD CONSTRAINT `candidat_interet_ibfk_1` FOREIGN KEY (`idcandidat`) REFERENCES `candidat` (`idcandidat`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `candidat_interet_ibfk_2` FOREIGN KEY (`idinteret`) REFERENCES `interet` (`idinteret`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `candidat_langue`

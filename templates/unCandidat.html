@@ -47,24 +47,25 @@
                 <input type="text" ng-model="Candidat.telephone" />
             </div>
             <div class="col-auto row form-group">
-            <label class="form-label col" > REMARQUES:{{Candidat.Remarque}}</label>
+            <label class="form-label col" > REMARQUES:</label>
             </div>
             <div class="col-auto row form-group ">
                 <textarea ng-model="Candidat.Remarque" class="col-offset-3 col-12" form="idform">
 
                 </textarea>
             </div>
-            <div ng-controller="operationUtilisateur">
+            <div ng-controller="operationUtilisateur" >
 
                 <div class="col-auto row form-group" >  
                     <input type="submit" ng-click="modifier()" class=" col-12 btn btn-success" value="valider Modification" />
                 </div>
-                <div class="alert alert-success collapse col-12" id="collapseLang" ng-show="showmeLang">
+                <div class="alert alert-success col-12" ng-show="showmeCandid">
                     <strong><center> competence modifié.</center></strong>
                 </div>
-                <div class="alert alert-danger" ng-show="hidemeLang">
+                <div class="alert alert-danger" ng-show="hidemeCandid">
                     <strong><center>Erreur update competence.</center></strong>
                 </div>
+            </div>
 
         </form>
     </div>
