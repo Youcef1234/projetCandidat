@@ -6,26 +6,13 @@ try
 
 {
     header('Access-Control-Allow-Origin: *');
+	header('Content-Type: application/json');
 
 
-/*    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-$sql = "UPDATE `newtable` SET `id`= 'Dubois' , `prenom` = 'Thierry' , `email` = 'duboisthierry@gmail.com' WHERE `id` = 1" ;
-
-    if ($conn->query($sql) === TRUE) {
-
-        echo "Record updated successfully";
-    }
-
-
-{
-
-echo "Record has been successfully updated";
-
-}*/
-$data = json_decode(file_get_contents('php://input'),true);
-//print_r($data['candidat']);
-echo  json_encode("amal");
+	$data = json_decode(file_get_contents('php://input'),true);
+	
+	echo  json_encode($data['candidat']);
+	
 }
 
 catch (PDOException $e)

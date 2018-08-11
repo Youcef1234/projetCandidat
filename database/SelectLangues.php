@@ -11,21 +11,20 @@ try
 
     $req=$conn->prepare("
       SELECT *
-      FROM competence c
-      JOIN candidat_competences cc 
-      ON c.idcompetence=cc.idcompet
-      where cc.idcandidat=".$_GET['idcandid']."
+      FROM langue l
+      JOIN candidat_langue cl 
+      ON l.idlangue=cl.idlangue
+      where cl.idcandidat=".$_GET['idcandid']."
     ");
 
     $req->execute();
     $d=array();
     foreach($req->fetchAll() as $row) {
         $d['mydb'][]= array(
-            'idcompetence'=>$row['idcompetence'],
-            'com_nom' =>$row['com_nom'],
-            'com_evaluation' =>$row['com_evaluation'],
-            'com_commentaire' =>$row['com_commentaire']
-        
+            'idlangue'=>$row['idlangue'],
+            'l_nom' =>$row['l_nom'],
+            'l_evaluation' =>$row['l_evaluation'],
+            'l_commentaire' =>$row['l_commentaire']
         );
 
     }
