@@ -1,194 +1,186 @@
-<div ng-include="'templates/navbar.html'"></div>
 
-<br>
-<br>
-<div class="container" ng-controller="listeCandidats" >
-    <h3><strong><center>liste des candidats</center><strong></h3>
-    <br>
+    <div class="container" ng-controller="unCandidat" >
+        <div ng-include="templates/navbar.html"></div>
+        <div class="col-offset-3 panel">
+            <h3 class="text-center">le candidat</h3>
+            <form class="form-well jumbotron" id="idform">
+                <input hidden="true" type="text" class="form-control" 
+                ng-model="Candidat.idcandidat"/>
 
-<div class="container" ng-controller="unCandidat" >
-    <div class="col-offset-3 panel">
-        <h3 class="text-center">le candidat</h3>
-        <form class="form-well jumbotron" id="idform">
-            <input hidden="true" type="text" class="form-control" 
-            ng-model="Candidat.idcandidat"/>
-
-            <div class="col-auto row form-group">
-                <label class="form-label col" > NOM :</label>
-                    <input type="text"  ng-model="Candidat.nom" />
-                <label class="form-label col" > PRENOM:</label>
-                    <input type="text" ng-model="Candidat.prenom" />
-            </div>
-
-            <div class="col-auto row form-group">
-                <label class="form-label col" > AGE:</label>
-                <input type="text" class="input" ng-model="Candidat.age" />
-                <label class="form-label col"> DATA DE NAISSANCE: </label>
-                <input type="text" ng-model="Candidat.date_naissance" />
-            </div>
-
-            <div class="col-auto row form-group">
-                <label class="form-label col" > NATIONALITE:</label>
-                <input type="text" ng-model="Candidat.Nationalite" />
-                <label class="form-label col" > ADRESSE:</label>
-                <input type="text"  ng-model="Candidat.adresse" />
-            </div>
-
-            <div class="col-auto row form-group">
-                <label class="form-label col" > VILLE:</label>
-                <input type="text"  ng-model="Candidat.Ville" />
-                <label class="form-label col" > CODE POSTAL:</label>
-                <input type="text"  ng-model="Candidat.Code_Postal" />
-            </div>
-            <div class="col-auto row form-group">
-                <label class="form-label col" > EMAIL:</label>
-                <input type="text" ng-model="Candidat.email" />
-                <label class="form-label col" > TEL:</label>
-                <input type="text" ng-model="Candidat.telephone" />
-            </div>
-            <div class="col-auto row form-group">
-            <label class="form-label col" > REMARQUES:</label>
-            </div>
-            <div class="col-auto row form-group ">
-                <textarea ng-model="Candidat.Remarque" class="col-offset-3 col-12" form="idform">
-
-                </textarea>
-            </div>
-            <div ng-controller="operationUtilisateur" >
-
-                <div class="col-auto row form-group" >  
-                    <input type="submit" ng-click="modifier()" class=" col-12 btn btn-success" value="valider Modification" />
+                <div class="col-auto row form-group">
+                    <label class="form-label col" > NOM :</label>
+                        <input type="text"  ng-model="Candidat.nom" />
+                    <label class="form-label col" > PRENOM:</label>
+                        <input type="text" ng-model="Candidat.prenom" />
                 </div>
-                <div class="alert alert-success col-12" ng-show="showmeCandid">
-                    <strong><center> competence modifié.</center></strong>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" > AGE:</label>
+                    <input type="text" class="input" ng-model="Candidat.age" />
+                    <label class="form-label col"> DATA DE NAISSANCE: </label>
+                    <input type="text" ng-model="Candidat.date_naissance" />
                 </div>
-                <div class="alert alert-danger" ng-show="hidemeCandid">
-                    <strong><center>Erreur update competence.</center></strong>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" > NATIONALITE:</label>
+                    <input type="text" ng-model="Candidat.Nationalite" />
+                    <label class="form-label col" > ADRESSE:</label>
+                    <input type="text"  ng-model="Candidat.adresse" />
                 </div>
-            </div>
 
-        </form>
-    </div>
-
-
-
-    <h3 class="text-center">les competences</h3>
-
-    <div class="row" ng-controller="competences">
-        <form class="form-well jumbotron" id="idformcom" ng-repeat="competence in lescompetences">
-            <input hidden="true" type="text" class="form-control" 
-            ng-model="competence.idcompetence"/>
-
-            <div class="col-auto row form-group">
-                <label class="form-label col" > TITRE :</label>
-                    <input type="text"  ng-model="competence.com_nom" />
-            </div>
-
-            <div class="col-auto row form-group">
-                <label class="form-label col" > EVAL:</label>
-                <input type="text" class="input" ng-model="competence.com_evaluation" />
-            </div>
-
-            <div class="col-auto row form-group">
-                <label class="form-label col" >COMMENTAIRE:</label>
-            </div>
-            <div class="col-auto row form-group ">
-                <textarea ng-model="competence.com_commentaire" class="col-offset-3 col-12" form="idformcom">
-                </textarea>
-            </div>
-            <div ng-controller="operationUtilisateur">
-                <div class="col-auto row form-group" > 
-                    <input type="submit" ng-click="modifierComp()" 
-                    class=" col-12 row btn btn-success" value="valider Modification" />
+                <div class="col-auto row form-group">
+                    <label class="form-label col" > VILLE:</label>
+                    <input type="text"  ng-model="Candidat.Ville" />
+                    <label class="form-label col" > CODE POSTAL:</label>
+                    <input type="text"  ng-model="Candidat.Code_Postal" />
                 </div>
-                <div class="alert alert-success" ng-show="showme">
-                    <strong> competence modifié.</strong>
+                <div class="col-auto row form-group">
+                    <label class="form-label col" > EMAIL:</label>
+                    <input type="text" ng-model="Candidat.email" />
+                    <label class="form-label col" > TEL:</label>
+                    <input type="text" ng-model="Candidat.telephone" />
                 </div>
-                <div class="alert alert-danger" ng-show="hideme">
-                    <strong> Erreur update competence.</strong>
+                <div class="col-auto row form-group">
+                <label class="form-label col" > REMARQUES:</label>
                 </div>
-            </div>
-        </form>
-    </div>
+                <div class="col-auto row form-group ">
+                    <textarea ng-model="Candidat.Remarque" class="col-offset-3 col-12" form="idform">
 
-    <h3 class="text-center">les diplomes</h3>
-    <div class="row" ng-controller="diplomes">
-        <form class="form-well jumbotron" id="idformdip" ng-repeat="diplome in lesdiplomes">
-            <input hidden="true" type="text" class="form-control" 
-            ng-model="competence.iddiplome"/>
-
-            <div class="col-auto row form-group">
-                <label class="form-label col" > TYPE :</label>
-                    <input type="text"  ng-model="diplome.type_diplome" />
-            </div>
-
-            <div class="col-auto row form-group">
-                <label class="form-label col" > date_obtention:</label>
-                <input type="text" class="input" ng-model="diplome.date_obtention" />
-            </div>
-
-            <div class="col-auto row form-group">
-                <label class="form-label col" >dip_commentaire:</label>
-            </div>
-
-            <div class="col-auto row form-group ">
-                <textarea ng-model="diplome.dip_commentaire" class="col-offset-3 col-12" form="idformdip">
-                </textarea>
-            </div>
-            <div ng-controller="operationUtilisateur" >
-            <div class="col-auto row form-group" data-toggle="collapse" href="#collapseDip" >  
-                <input type="submit" ng-click="modifierDip()" 
-                class=" col-12 btn btn-success" value="valider Modification" />
-
-                <div class="alert alert-success col-12 collapse" id="collapseDip" ng-show="showmeDip">
-                    <strong><center> competence modifié.</center></strong>
+                    </textarea>
                 </div>
-                <div class="alert alert-danger" ng-show="hidemeDip">
-                    <strong><center>Erreur update competence.</center></strong>
-                </div>
-            </div>
-            </div>
-        </form>
-    </div>
+                <div ng-controller="operationUtilisateur" >
 
-    <h3 class="text-center">les langues</h3>
-    <div class="row" ng-controller="langues">
-        <form class="form-well jumbotron" id="idformlang" ng-repeat="langue in leslangues">
-            <input hidden="true" type="text" class="form-control" 
-            ng-model="langue.idlangue"/>
-
-            <div class="col-auto row form-group">
-                <label class="form-label col" > NOM :</label>
-                    <input type="text"  ng-model="langue.l_nom" />
-            </div>
-
-            <div class="col-auto row form-group">
-                <label class="form-label col" > Evaluation:</label>
-                <input type="text" class="input" ng-model="langue.l_evaluation" />
-            </div>
-
-            <div class="col-auto row form-group">
-                <label class="form-label col" >l_commentaire:</label>
-            </div>
-            <div class="col-auto row form-group ">
-                <textarea ng-model="langue.l_commentaire" class="col-offset-3 col-12" form="idformlang">
-                </textarea>
-            </div>
-            <div ng-controller="operationUtilisateur" >
-                <div class="col-auto row form-group" data-toggle="collapse" href="#collapseLang">  
-                    <input type="submit" ng-click="modifierLang()" 
-                    class=" col-12 btn btn-success" value="valider Modification" />
-                    <div class="alert alert-success collapse col-12" id="collapseLang" ng-show="showmeLang">
+                    <div class="col-auto row form-group" >  
+                        <input type="submit" ng-click="modifier()" class=" col-12 btn btn-success" value="valider Modification" />
+                    </div>
+                    <div class="alert alert-success col-12" ng-show="showmeCandid">
                         <strong><center> competence modifié.</center></strong>
                     </div>
-                    <div class="alert alert-danger" ng-show="hidemeLang">
+                    <div class="alert alert-danger" ng-show="hidemeCandid">
                         <strong><center>Erreur update competence.</center></strong>
                     </div>
                 </div>
-            </div>
-        </form>
+
+            </form>
+        </div>
+
+
+
+        <h3 class="text-center">les competences</h3>
+
+        <div class="row" ng-controller="competences">
+            <form class="form-well jumbotron" id="idformcom" ng-repeat="competence in lescompetences">
+                <input hidden="true" type="text" class="form-control" 
+                ng-model="competence.idcompetence"/>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" > TITRE :</label>
+                        <input type="text"  ng-model="competence.com_nom" />
+                </div>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" > EVAL:</label>
+                    <input type="text" class="input" ng-model="competence.com_evaluation" />
+                </div>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" >COMMENTAIRE:</label>
+                </div>
+                <div class="col-auto row form-group ">
+                    <textarea ng-model="competence.com_commentaire" class="col-offset-3 col-12" form="idformcom">
+                    </textarea>
+                </div>
+                <div ng-controller="operationUtilisateur">
+                    <div class="col-auto row form-group" > 
+                        <input type="submit" ng-click="modifierComp()" 
+                        class=" col-12 row btn btn-success" value="valider Modification" />
+                    </div>
+                    <div class="alert alert-success" ng-show="showme">
+                        <strong> competence modifié.</strong>
+                    </div>
+                    <div class="alert alert-danger" ng-show="hideme">
+                        <strong> Erreur update competence.</strong>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <h3 class="text-center">les diplomes</h3>
+        <div class="row" ng-controller="diplomes">
+            <form class="form-well jumbotron" id="idformdip" ng-repeat="diplome in lesdiplomes">
+                <input hidden="true" type="text" class="form-control" 
+                ng-model="competence.iddiplome"/>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" > TYPE :</label>
+                        <input type="text"  ng-model="diplome.type_diplome" />
+                </div>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" > date_obtention:</label>
+                    <input type="text" class="input" ng-model="diplome.date_obtention" />
+                </div>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" >dip_commentaire:</label>
+                </div>
+
+                <div class="col-auto row form-group ">
+                    <textarea ng-model="diplome.dip_commentaire" class="col-offset-3 col-12" form="idformdip">
+                    </textarea>
+                </div>
+                <div ng-controller="operationUtilisateur" >
+                <div class="col-auto row form-group" data-toggle="collapse" href="#collapseDip" >  
+                    <input type="submit" ng-click="modifierDip()" 
+                    class=" col-12 btn btn-success" value="valider Modification" />
+
+                    <div class="alert alert-success col-12 collapse" id="collapseDip" ng-show="showmeDip">
+                        <strong><center> competence modifié.</center></strong>
+                    </div>
+                    <div class="alert alert-danger" ng-show="hidemeDip">
+                        <strong><center>Erreur update competence.</center></strong>
+                    </div>
+                </div>
+                </div>
+            </form>
+        </div>
+
+        <h3 class="text-center">les langues</h3>
+        <div class="row" ng-controller="langues">
+            <form class="form-well jumbotron" id="idformlang" ng-repeat="langue in leslangues">
+                <input hidden="true" type="text" class="form-control" 
+                ng-model="langue.idlangue"/>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" > NOM :</label>
+                        <input type="text"  ng-model="langue.l_nom" />
+                </div>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" > Evaluation:</label>
+                    <input type="text" class="input" ng-model="langue.l_evaluation" />
+                </div>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" >l_commentaire:</label>
+                </div>
+                <div class="col-auto row form-group ">
+                    <textarea ng-model="langue.l_commentaire" class="col-offset-3 col-12" form="idformlang">
+                    </textarea>
+                </div>
+                <div ng-controller="operationUtilisateur" >
+                    <div class="col-auto row form-group" data-toggle="collapse" href="#collapseLang">  
+                        <input type="submit" ng-click="modifierLang()" 
+                        class=" col-12 btn btn-success" value="valider Modification" />
+                        <div class="alert alert-success collapse col-12" id="collapseLang" ng-show="showmeLang">
+                            <strong><center> competence modifié.</center></strong>
+                        </div>
+                        <div class="alert alert-danger" ng-show="hidemeLang">
+                            <strong><center>Erreur update competence.</center></strong>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-
-
-</div>
 
