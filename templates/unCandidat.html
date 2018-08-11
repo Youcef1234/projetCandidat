@@ -54,9 +54,18 @@
 
                 </textarea>
             </div>
-            <div class="col-auto row form-group" ng-controller="operationUtilisateur">  
-                <input type="submit" ng-click="modifier()" class=" col-12 btn btn-success" value="valider Modification" />
-            </div>
+            <div ng-controller="operationUtilisateur">
+
+                <div class="col-auto row form-group" >  
+                    <input type="submit" ng-click="modifier()" class=" col-12 btn btn-success" value="valider Modification" />
+                </div>
+                <div class="alert alert-success collapse col-12" id="collapseLang" ng-show="showmeLang">
+                    <strong><center> competence modifié.</center></strong>
+                </div>
+                <div class="alert alert-danger" ng-show="hidemeLang">
+                    <strong><center>Erreur update competence.</center></strong>
+                </div>
+
         </form>
     </div>
 

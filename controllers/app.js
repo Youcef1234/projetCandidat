@@ -102,6 +102,10 @@ app.controller('listeCandidats', function ($http, $scope) {
             console.log(time);
             $scope.hideme=false;
             $scope.showme=false;
+            $scope.hidemeDip=false;
+            $scope.hidemeLang=false;
+            $scope.showmeDip=false;
+            $scope.showmeLang=false;
         }
     }
         
@@ -121,8 +125,17 @@ app.controller('listeCandidats', function ($http, $scope) {
             data:{"candidat":$scope.Candidat},
 
         }).then(function onSuccess(response ) {
-            $scope.Candidat = response.data.Candidat;
             console.log(response)
+            if(!response.data.includes("error")){
+                $scope.showmeCandid=true;
+                $scope.hidemeCandid=false;
+                $timeout(timer, 1000);       
+
+            }
+            else{
+                $scope.hideme=true;
+                $scope.showme=false;
+            }
         }).catch(function onError(response) {
             // Handle error
             console.warn("error etting data");
