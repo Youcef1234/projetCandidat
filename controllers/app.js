@@ -240,6 +240,21 @@ app.controller('listeCandidats', function ($http, $scope) {
 
         });
     };
+}).controller('listecompetences', function ($http, $scope,$routeParams) {
+    $http({
+        method : "GET",
+        url : "http://localhost/projetCandidat/database/lescompetences.php",
+        headers: {
+            'Accept': '*.*',
+            'Content-Type': 'application/json'
+        },
+    }).then(function onSuccess(response) {
+        $scope.lescompetences = response.data.mydb;
+        console.log(response)
+    }).catch(function onError(response) {
+        console.warn("error getting data");
+        console.log(response)
+    });
 });
 
 

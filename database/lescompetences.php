@@ -22,7 +22,6 @@ try
             'com_nom' =>$row['com_nom'],
             'com_evaluation' =>$row['com_evaluation'],
             'com_commentaire' =>$row['com_commentaire']
-        
         );
 
     }
