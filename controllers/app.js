@@ -253,6 +253,9 @@ function($routeProvider) {
     .when('/candidats', {
         templateUrl: 'templates/lescandidats.html',
       })
+    .when('/competences', {
+        templateUrl: 'templates/competences.html',
+      })
     .when('/unCandidat/:idcandid', {
         templateUrl: 'templates/unCandidat.html',
     });
