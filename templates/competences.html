@@ -1,4 +1,6 @@
 <div class="container" ng-controller="listecompetences">
+    <div ng-include="'templates/navbar.html'"> </div>
+
     <h3 class="text-center">liste des competences</h3>
 
     <div class="col-offset-3 col-auto panel row ">
@@ -40,8 +42,8 @@
     <div class="row ">
         <input type="submit" value="add" class="offset-4 col-4"></input>
     </div>
-    <div class="row justify-content-center"">
-        <form class="form-well jumbotron  id="idformcom">
+    <div class="row justify-content-center">
+        <form class="form-well jumbotron"  id="idformcom" >
             <input hidden="true" type="text" class="form-control" 
             ng-model="competence.idcompetence"/>
 

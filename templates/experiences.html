@@ -1,24 +1,90 @@
-<div class="container" ng-controller="listeCandidats">
-    <div class="col-offset-3 col-auto panel">
-    <h3 class="text-center">liste des personnes</h3>
-      <form class="form-well jumbotron" ng-repeat="Candidat in lescandidats">
-        <input hidden="true" type="text" class="form-control" ng-model="Candidat.idcandidat"/>
+<div class="container" ng-controller="listeExperiences">
+    <div ng-include="'templates/navbar.html'"> </div>
 
-        <div class="col-auto row form-group">
-            <label class="form-label col">Employeur: </label><input type="text" ng-model="Candidat.employeur" />
-            <label class="form-label col">DATE DEB:</label><input type="text"  ng-model="Candidat.debut_contrat" />
-            <label class="form-label col">DATE FIN: </label><input type="text" ng-model="Candidat.fin_contrat" />
-        </div>   
+    <h3 class="text-center">liste des experiences</h3>
 
-        <div class="col-auto row form-group">
-            <label class="form-label col">Commentaire Employeur: </label><input type="text" ng-model="Candidat.xpro_Commentaire" />
-        </div>
+    <div class="col-offset-3 col-auto panel row ">
+        <form class="form-well jumbotron mr-3 " id="idformcom" ng-repeat="experience in lesexperiences">
+            <input hidden="true" type="text" class="form-control" 
+            ng-model="experience.idexperience_pro"/>
 
-        <div class="col-auto row form-group" ng-controller="operationUtilisateur">  
-            <input type="submit" ng-click="modifier()" class=" col-12 btn btn-success" value="valider Modif" />
-        </div>
+            <div class="col-auto row form-group">
+                <label class="form-label col" > EMPLOYEUR :</label>
+                    <input type="text"  ng-model="experience.employeur" />
+            </div>
+            <div class="col-auto row form-group">
+                <label class="form-label col" > DEBUT CONTRAT :</label>
+                    <input type="text"  ng-model="experience.debut_contrat" />
+            </div>
+            <div class="col-auto row form-group">
+                <label class="form-label col" > Fin CONTRAT :</label>
+                    <input type="text"  ng-model="experience.fin_contrat" />
+            </div>
 
-      </form>
+            <div class="col-auto row form-group">
+                <label class="form-label col" >COMMENTAIRE:</label>
+            </div>
+
+            <div class="col-auto row form-group ">
+                <textarea ng-model="experience.xpro_Commentaire" class="col-offset-3 col-12" form="idformcom">
+                </textarea>
+            </div>
+            <div ng-controller="operationUtilisateur">
+                <div class="col-auto row form-group" > 
+                    <input type="submit" ng-click="modifierComp()" 
+                    class=" col-12 btn btn-success" value="valider Modification" />
+                </div>
+                <div class="alert alert-success" ng-show="showme">
+                    <strong> competence modifié.</strong>
+                </div>
+                <div class="alert alert-danger" ng-show="hideme">
+                    <strong> Erreur update competence.</strong>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <input type="submit" value="add" class=" mb-4 offset-4 col-4"></input>
+    </div>
+    <div class="row justify-content-center">
+        <form class="form-well jumbotron mr-3 " id="idformcom">
+            <input hidden="true" type="text" class="form-control" 
+            ng-model="nvexperience.idexperience_pro"/>
+
+            <div class="col-auto row form-group">
+                <label class="form-label col" > EMPLOYEUR :</label>
+                    <input type="text"  ng-model="mvexperience.employeur" />
+            </div>
+            <div class="col-auto row form-group">
+                <label class="form-label col" > DEBUT CONTRAT :</label>
+                    <input type="text"  ng-model="nvexperience.debut_contrat" />
+            </div>
+            <div class="col-auto row form-group">
+                <label class="form-label col" > Fin CONTRAT :</label>
+                    <input type="text"  ng-model="experience.fin_contrat" />
+            </div>
+
+            <div class="col-auto row form-group">
+                <label class="form-label col" >COMMENTAIRE:</label>
+            </div>
+
+            <div class="col-auto row form-group ">
+                <textarea ng-model="experience.xpro_Commentaire" class="col-offset-3 col-12" form="idformcom">
+                </textarea>
+            </div>
+            <div ng-controller="operationUtilisateur">
+                <div class="col-auto row form-group" > 
+                    <input type="submit" ng-click="modifierComp()" 
+                    class=" col-12 btn btn-success" value="valider ajout" />
+                </div>
+                <div class="alert alert-success" ng-show="showme">
+                    <strong> competence modifié.</strong>
+                </div>
+                <div class="alert alert-danger" ng-show="hideme">
+                    <strong> Erreur update competence.</strong>
+                </div>
+            </div>
+        </form>
+
     </div>
 </div>
-

@@ -255,6 +255,81 @@ app.controller('listeCandidats', function ($http, $scope) {
         console.warn("error getting data");
         console.log(response)
     });
+}).controller('listeinterets', function ($http, $scope,$routeParams) {
+    $http({
+        method : "GET",
+        url : "http://localhost/projetCandidat/database/lesinterets.php",
+        headers: {
+            'Accept': '*.*',
+            'Content-Type': 'application/json'
+        },
+    }).then(function onSuccess(response) {
+        $scope.lesinterets = response.data.mydb;
+        console.log(response)
+    }).catch(function onError(response) {
+        console.warn("error getting data");
+        console.log(response)
+    });
+}).controller('listeinterets', function ($http, $scope,$routeParams) {
+    $http({
+        method : "GET",
+        url : "http://localhost/projetCandidat/database/lesinterets.php",
+        headers: {
+            'Accept': '*.*',
+            'Content-Type': 'application/json'
+        },
+    }).then(function onSuccess(response) {
+        $scope.lesinterets = response.data.mydb;
+        console.log(response)
+    }).catch(function onError(response) {
+        console.warn("error getting data");
+        console.log(response)
+    });
+}).controller('listeDiplomes', function ($http, $scope,$routeParams) {
+    $http({
+        method : "GET",
+        url : "http://localhost/projetCandidat/database/lesdiplomes.php",
+        headers: {
+            'Accept': '*.*',
+            'Content-Type': 'application/json'
+        },
+    }).then(function onSuccess(response) {
+        $scope.lesdiplomes = response.data.mydb;
+        console.log(response)
+    }).catch(function onError(response) {
+        console.warn("error getting data");
+        console.log(response)
+    });
+}).controller('listeExperiences', function ($http, $scope,$routeParams) {
+    $http({
+        method : "GET",
+        url : "http://localhost/projetCandidat/database/lesexperiences.php",
+        headers: {
+            'Accept': '*.*',
+            'Content-Type': 'application/json'
+        },
+    }).then(function onSuccess(response) {
+        $scope.lesexperiences = response.data.mydb;
+        console.log(response)
+    }).catch(function onError(response) {
+        console.warn("error getting data");
+        console.log(response)
+    });
+}).controller('listeLangues', function ($http, $scope,$routeParams) {
+    $http({
+        method : "GET",
+        url : "http://localhost/projetCandidat/database/leslangues.php",
+        headers: {
+            'Accept': '*.*',
+            'Content-Type': 'application/json'
+        },
+    }).then(function onSuccess(response) {
+        $scope.leslangues = response.data.mydb;
+        console.log(response)
+    }).catch(function onError(response) {
+        console.warn("error getting data");
+        console.log(response)
+    });
 });
 
 
@@ -273,6 +348,21 @@ function($routeProvider) {
       })
     .when('/unCandidat/:idcandid', {
         templateUrl: 'templates/unCandidat.html',
+    })
+    .when('/experiences', {
+        templateUrl: 'templates/experiences.html',
+    })
+    .when('/diplomes', {
+        templateUrl: 'templates/unCandidat.html',
+    })
+    .when('/interets',{
+        templateUrl:'templates/interets.html'
+    })
+    .when('/diplomes',{
+        templateUrl:'templates/diplomes.html'
+    })
+    .when('/langues',{
+        templateUrl:'templates/langues.html'
     });
 
 }]);

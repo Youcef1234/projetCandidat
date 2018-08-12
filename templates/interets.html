@@ -1,27 +1,23 @@
-<div class="container" ng-controller="listeDiplomes">
+<div class="container" ng-controller="listeinterets">
     <div ng-include="'templates/navbar.html'"> </div>
 
-    <h3 class="text-center">liste des diplomes</h3>
+    <h3 class="text-center">liste des interets</h3>
 
     <div class="col-offset-3 col-auto panel row ">
-        <form class="form-well jumbotron mr-3 " id="idformcom" ng-repeat="diplome in lesdiplomes">
+        <form class="form-well jumbotron mr-3 " id="idformcom" ng-repeat="interet in lesinterets">
             <input hidden="true" type="text" class="form-control" 
-            ng-model="diplome.iddiplome"/>
+            ng-model="interet.idinteret"/>
 
             <div class="col-auto row form-group">
-                <label class="form-label col" > TYPE DIPLOME :</label>
-                    <input type="text"  ng-model="diplome.type_diplome" />
+                <label class="form-label col" > TITRE :</label>
+                    <input type="text"  ng-model="interet.nom" />
             </div>
-            <div class="col-auto row form-group">
-                <label class="form-label col" > OBTENTION :</label>
-                    <input type="text"  ng-model="diplome.date_obtention" />
-            </div>
+
             <div class="col-auto row form-group">
                 <label class="form-label col" >COMMENTAIRE:</label>
             </div>
-
             <div class="col-auto row form-group ">
-                <textarea ng-model="diplome.dip_commentaire" class="col-offset-3 col-12" form="idformcom">
+                <textarea ng-model="interet.commentaire" class="col-offset-3 col-12" form="idformcom">
                 </textarea>
             </div>
             <div ng-controller="operationUtilisateur">
@@ -44,28 +40,23 @@
     <div class="row justify-content-center">
         <form class="form-well jumbotron"  id="idformcom">
             <input hidden="true" type="text" class="form-control" 
-            ng-model="nvdiplome.iddiplome"/>
+            ng-model="competence.idcompetence"/>
 
             <div class="col-auto row form-group">
-                <label class="form-label col" > TYPE DIPLOME :</label>
-                    <input type="text"  ng-model="nvdiplome.type_diplome" />
-            </div>
-
-            <div class="col-auto row form-group">
-                <label class="form-label col" >date obtention :</label>
-                    <input type="text"  ng-model="nvdiplome.date_obtention" />
+                <label class="form-label col" > TITRE :</label>
+                    <input type="text"  ng-model="interet.nom" />
             </div>
 
             <div class="col-auto row form-group">
                 <label class="form-label col" >COMMENTAIRE:</label>
             </div>
             <div class="col-auto row form-group ">
-                <textarea ng-model="nvdiplome.dip_commentaire" class="col-offset-3 col-12" form="idformcom">
+                <textarea ng-model="interet.commentaire" class="col-offset-3 col-12" form="idformcom">
                 </textarea>
             </div>
             <div ng-controller="operationUtilisateur">
                 <div class="col-auto row form-group" > 
-                    <input type="submit" ng-click="modifierDip()" 
+                    <input type="submit" ng-click="modifierComp()" 
                     class=" col-12 btn btn-success" value="valider" />
                 </div>
                 <div class="alert alert-success" ng-show="showme">
