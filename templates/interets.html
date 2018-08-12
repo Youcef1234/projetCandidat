@@ -22,21 +22,33 @@
             </div>
             <div ng-controller="operationUtilisateur">
                 <div class="col-auto row form-group" > 
-                    <input type="submit" ng-click="modifierComp()" 
+                    <input type="submit" ng-click="modifierInt()" 
                     class=" col-12 btn btn-success" value="valider Modification" />
                 </div>
-                <div class="alert alert-success" ng-show="showme">
-                    <strong> competence modifié.</strong>
+                <div class="alert alert-success" ng-show="showmeInt">
+                    <strong> interet modifié.</strong>
                 </div>
-                <div class="alert alert-danger" ng-show="hideme">
-                    <strong> Erreur update competence.</strong>
+                <div class="alert alert-danger" ng-show="hidemeInt">
+                    <strong> Erreur update interet.</strong>
+                </div>
+            </div>
+            <div ng-controller="operationsupprimerUtilisateur">
+                <div class="col-auto row form-group" > 
+                    <input type="submit" ng-click="supprimerInt()" 
+                    class=" col-12 btn btn-warning" value="supprimer" />
+                </div>
+                <div class="alert alert-success" ng-show="showmeInt">
+                    <strong><center>interet supprime.</center></strong>
+                </div>
+                <div class="alert alert-danger" ng-show="hidemeInt">
+                    <strong> Erreur delete interet.</strong>
                 </div>
             </div>
         </form>
     </div>
-    <div class="row">
-        <input type="submit" value="add" class=" mb-4 offset-4 col-4"></input>
-    </div>
+
+    <h3><center>Ajout interet</center></h3>
+
     <div class="row justify-content-center">
         <form class="form-well jumbotron"  id="idformcom">
             <input hidden="true" type="text" class="form-control" 
@@ -54,15 +66,15 @@
                 <textarea ng-model="interet.commentaire" class="col-offset-3 col-12" form="idformcom">
                 </textarea>
             </div>
-            <div ng-controller="operationUtilisateur">
+            <div ng-controller="operationinsereUtilisateur">
                 <div class="col-auto row form-group" > 
-                    <input type="submit" ng-click="modifierComp()" 
+                    <input type="submit" ng-click="insererInt()" 
                     class=" col-12 btn btn-success" value="valider" />
                 </div>
-                <div class="alert alert-success" ng-show="showme">
+                <div class="alert alert-success" ng-show="showmeInt">
                     <strong> interet ajouté.</strong>
                 </div>
-                <div class="alert alert-danger" ng-show="hideme">
+                <div class="alert alert-danger" ng-show="hidemeInt">
                     <strong> Erreur ajout interet.</strong>
                 </div>
             </div>

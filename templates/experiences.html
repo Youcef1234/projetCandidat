@@ -31,29 +31,41 @@
             </div>
             <div ng-controller="operationUtilisateur">
                 <div class="col-auto row form-group" > 
-                    <input type="submit" ng-click="modifierComp()" 
+                    <input type="submit" ng-click="modifierExpr()" 
                     class=" col-12 btn btn-success" value="valider Modification" />
                 </div>
-                <div class="alert alert-success" ng-show="showme">
-                    <strong> competence modifié.</strong>
+                <div class="alert alert-success" ng-show="showmeExpr">
+                    <strong> experience modifiee.</strong>
                 </div>
-                <div class="alert alert-danger" ng-show="hideme">
-                    <strong> Erreur update competence.</strong>
+                <div class="alert alert-danger" ng-show="hidemeExpr">
+                    <strong> Erreur update experience.</strong>
+                </div>
+            </div>
+            <div ng-controller="operationsupprimerUtilisateur">
+                <div class="col-auto row form-group" > 
+                    <input type="submit" ng-click="supprimerExpr()" 
+                    class=" col-12 btn btn-warning" value="supprimer" />
+                </div>
+                <div class="alert alert-success" ng-show="showmeExpr">
+                    <strong> experience supprimee.</strong>
+                </div>
+                <div class="alert alert-danger" ng-show="hidemeExpr">
+                    <strong> Erreur suppression experience.</strong>
                 </div>
             </div>
         </form>
     </div>
-    <div class="row">
-        <input type="submit" value="add" class=" mb-4 offset-4 col-4"></input>
-    </div>
+    <h3><center>Ajout Experience professionnelle</center></h3>
+
     <div class="row justify-content-center">
+
         <form class="form-well jumbotron mr-3 " id="idformcom">
             <input hidden="true" type="text" class="form-control" 
             ng-model="nvexperience.idexperience_pro"/>
 
             <div class="col-auto row form-group">
                 <label class="form-label col" > EMPLOYEUR :</label>
-                    <input type="text"  ng-model="mvexperience.employeur" />
+                    <input type="text"  ng-model="nvexperience.employeur" />
             </div>
             <div class="col-auto row form-group">
                 <label class="form-label col" > DEBUT CONTRAT :</label>
@@ -61,7 +73,7 @@
             </div>
             <div class="col-auto row form-group">
                 <label class="form-label col" > Fin CONTRAT :</label>
-                    <input type="text"  ng-model="experience.fin_contrat" />
+                    <input type="text"  ng-model="nvexperience.fin_contrat" />
             </div>
 
             <div class="col-auto row form-group">
@@ -69,19 +81,19 @@
             </div>
 
             <div class="col-auto row form-group ">
-                <textarea ng-model="experience.xpro_Commentaire" class="col-offset-3 col-12" form="idformcom">
+                <textarea ng-model="nvexperience.xpro_Commentaire" class="col-offset-3 col-12" form="idformcom">
                 </textarea>
             </div>
-            <div ng-controller="operationUtilisateur">
+            <div ng-controller="operationinsereUtilisateur">
                 <div class="col-auto row form-group" > 
-                    <input type="submit" ng-click="modifierComp()" 
+                    <input type="submit" ng-click="insererExpr()" 
                     class=" col-12 btn btn-success" value="valider ajout" />
                 </div>
                 <div class="alert alert-success" ng-show="showme">
-                    <strong> competence modifié.</strong>
+                    <strong> experience inseree.</strong>
                 </div>
                 <div class="alert alert-danger" ng-show="hideme">
-                    <strong> Erreur update competence.</strong>
+                    <strong> Erreur insertion experience.</strong>
                 </div>
             </div>
         </form>

@@ -208,7 +208,37 @@ app.controller('listeCandidats', function ($http, $scope) {
 
         });
     };
+    $scope.modifierInt=function(){
+        $http({
+            method : "POST",
+            url : "http://localhost/projetCandidat/database/updateInt.php",
+            headers: {
+                'Accept': '*.*',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
 
+            data:{"interet":$scope.interet},
+
+        }).then(function onSuccess(response ) {
+            console.log(response.data);
+            if(!response.data.includes("error")){
+                $scope.showmeInt=true;
+                $scope.hidemeInt=false;
+                $timeout(timer, 1000);       
+
+            }
+            else{
+                $scope.hidemeInt=true;
+                $scope.showmeInt=false;
+
+            }
+        }).catch(function onError(response) {
+            // Handle error
+            console.warn("error update");
+            $scope.hidemeInt=true;
+
+        });
+    };
     $scope.modifierLang=function(){
         $http({
             method : "POST",
@@ -231,6 +261,38 @@ app.controller('listeCandidats', function ($http, $scope) {
             else{
                 $scope.hidemeLang=true;
                 $scope.showmeLang=false;
+
+            }
+        }).catch(function onError(response) {
+            // Handle error
+            console.warn("error update");
+            $scope.hidemeLang=true;
+
+        });
+
+    };
+    $scope.modifierExpr=function(){
+        $http({
+            method : "POST",
+            url : "http://localhost/projetCandidat/database/updateExpr.php",
+            headers: {
+                'Accept': '*.*',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+
+            data:{"experience":$scope.experience},
+
+        }).then(function onSuccess(response ) {
+            console.log(response.data);
+            if(!response.data.includes("error")){
+                $scope.showmeExpr=true;
+                $scope.hidemeExpr=false;
+                $timeout(timer, 1000);       
+
+            }
+            else{
+                $scope.hidemeExpr=true;
+                $scope.showmeExpr=false;
 
             }
         }).catch(function onError(response) {

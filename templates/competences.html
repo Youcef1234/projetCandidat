@@ -3,7 +3,7 @@
 
     <h3 class="text-center">liste des competences</h3>
 
-    <div class="col-offset-3 col-auto panel row ">
+    <div class="col-offset-1 col-auto row ">
         <form class="form-well jumbotron mr-3 " id="idformcom" ng-repeat="competence in lescompetences">
             <input hidden="true" type="text" class="form-control" 
             ng-model="competence.idcompetence"/>
@@ -37,11 +37,22 @@
                     <strong> Erreur update competence.</strong>
                 </div>
             </div>
+            <div ng-controller="operationsupprimerUtilisateur">
+                <div class="col-auto row form-group" > 
+                    <input type="submit" ng-click="supprimerComp()" 
+                    class=" col-12 row btn btn-warning" value="supprimer" />
+                </div>
+                <div class="alert alert-success" ng-show="showme">
+                    <strong> competence supprimer.</strong>
+                </div>
+                <div class="alert alert-danger" ng-show="hideme">
+                    <strong> Erreur suppression competence.</strong>
+                </div>
+            </div>
         </form>
     </div>
-    <div class="row ">
-        <input type="submit" value="add" class="offset-4 col-4"></input>
-    </div>
+    <h3><center>Ajout compétence</center></h3>
+
     <div class="row justify-content-center">
         <form class="form-well jumbotron"  id="idformcom" >
             <input hidden="true" type="text" class="form-control" 
@@ -64,16 +75,16 @@
                 <textarea ng-model="competence.com_commentaire" class="col-offset-3 col-12" form="idformcom">
                 </textarea>
             </div>
-            <div ng-controller="operationUtilisateur">
+            <div ng-controller="operationinsereUtilisateur">
                 <div class="col-auto row form-group" > 
-                    <input type="submit" ng-click="modifierComp()" 
-                    class=" col-12 row btn btn-success" value="valider Modification" />
+                    <input type="submit" ng-click="insererComp()" 
+                    class=" col-12 row btn btn-success" value="valider" />
                 </div>
                 <div class="alert alert-success" ng-show="showme">
-                    <strong> competence modifié.</strong>
+                    <strong> competence ajouté.</strong>
                 </div>
                 <div class="alert alert-danger" ng-show="hideme">
-                    <strong> Erreur update competence.</strong>
+                    <strong> Erreur ajout competence.</strong>
                 </div>
             </div>
         </form>
