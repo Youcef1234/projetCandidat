@@ -11,7 +11,7 @@ try
 
     $req=$conn->prepare("
       SELECT *
-      FROM candidat c
+      FROM candidat
     ");
 
     $req->execute();

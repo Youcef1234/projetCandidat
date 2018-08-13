@@ -15,7 +15,77 @@
         <div class="col-auto row form-group" ng-controller="operationUtilisateur">
             <input type="submit" ng-click="consulterCandidat(Candidat.idcandidat)" class=" col-12 btn btn-success" value="consulter " />
         </div>
+        <div class="col-auto row form-group" ng-controller="operationsupprimerUtilisateur">
+            <input type="submit" ng-click="supprimerCandidat()" class=" col-12 btn btn-warning" value="supprimer " />
+            <div class="alert alert-success col-12" ng-show="showmeCandid">
+                <strong><center> candidat supprime.</center></strong>
+            </div>
+            <div class="alert alert-danger" ng-show="hidemeCandid">
+                <strong><center>Erreur suppression candidat.</center></strong>
+            </div>
+        </div>
 
       </form>
+    </div>
+    <div class="col-offset-3 panel">
+        <h3 class="text-center">Ajout candidat</h3>
+        <form class="form-well jumbotron" id="idform">
+            <input hidden="true" type="text" class="form-control" 
+            ng-model="nvandidat.idcandidat"/>
+
+            <div class="col-auto row form-group">
+                <label class="form-label col" > NOM :</label>
+                    <input type="text"  ng-model="nvandidat.nom" />
+                <label class="form-label col" > PRENOM:</label>
+                    <input type="text" ng-model="nvandidat.prenom" />
+            </div>
+
+            <div class="col-auto row form-group">
+                <label class="form-label col" > AGE:</label>
+                <input type="text" class="input" ng-model="nvandidat.age" />
+                <label class="form-label col"> DATA DE NAISSANCE: </label>
+                <input type="text" ng-model="nvandidat.date_naissance" />
+            </div>
+
+            <div class="col-auto row form-group">
+                <label class="form-label col" > NATIONALITE:</label>
+                <input type="text" ng-model="nvandidat.Nationalite" />
+                <label class="form-label col" > ADRESSE:</label>
+                <input type="text"  ng-model="nvandidat.adresse" />
+            </div>
+
+            <div class="col-auto row form-group">
+                <label class="form-label col" > VILLE:</label>
+                <input type="text"  ng-model="nvandidat.Ville" />
+                <label class="form-label col" > CODE POSTAL:</label>
+                <input type="text"  ng-model="nvandidat.Code_Postal" />
+            </div>
+            <div class="col-auto row form-group">
+                <label class="form-label col" > EMAIL:</label>
+                <input type="text" ng-model="nvandidat.email" />
+                <label class="form-label col" > TEL:</label>
+                <input type="text" ng-model="nvandidat.telephone" />
+            </div>
+            <div class="col-auto row form-group">
+            <label class="form-label col" > REMARQUES:</label>
+            </div>
+            <div class="col-auto row form-group ">
+                <textarea ng-model="nvandidat.Remarque" class="col-offset-3 col-12" form="idform">
+
+                </textarea>
+            </div>
+            <div ng-controller="operationinsereUtilisateur" >
+
+                <div class="col-auto row form-group" >  
+                    <input type="submit" ng-click="insererCandidat()" class=" col-12 btn btn-success" value="ajouter" />
+                </div>
+                <div class="alert alert-success col-12" ng-show="showmeCandid">
+                    <strong><center> candidat ajoute.</center></strong>
+                </div>
+                <div class="alert alert-danger" ng-show="hidemeCandid">
+                    <strong><center>Erreur ajout candidat.</center></strong>
+                </div>
+            </div>
+        </form>
     </div>
 </div>

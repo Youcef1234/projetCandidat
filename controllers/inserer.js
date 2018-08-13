@@ -161,4 +161,31 @@ app.controller('operationinsereUtilisateur', function($http, $scope,$location,$t
             console.log(response)
         });
     };
+    $scope.insererCandidat=function(){  
+        $http({
+            method : "POST",
+            url : "http://localhost/projetCandidat/database/insertCandidat.php",
+            headers: {
+                'Accept': '*.*',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+
+            data:{"candidat":$scope.nvandidat},
+
+        }).then(function onSuccess(response) {
+            console.log(response)
+            if(!response.data.includes("error")){
+                $scope.showmeCandid=true;
+                $scope.hidemeCandid=false;
+                $timeout(timer, 1000);       
+            }
+            else{
+                $scope.hidemeInt=true;
+                $scope.showmeInt=false;
+            }
+        }).catch(function onError(response) {
+            console.warn("error etting data");
+            console.log(response)
+        });
+    };
 });

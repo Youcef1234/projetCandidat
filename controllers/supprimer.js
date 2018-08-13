@@ -162,4 +162,30 @@ app.controller('operationsupprimerUtilisateur', function($http, $scope,$location
             console.log(response)
         });
     };
+    $scope.supprimerCandidat=function(){    
+        $http({
+            method : "POST",
+            url : "http://localhost/projetCandidat/database/supprimerCandid.php",
+            headers: {
+                'Accept': '*.*',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            data:{"candidat":$scope.Candidat},
+
+        }).then(function onSuccess(response ) {
+            console.log(response)
+            if(!response.data.includes("error")){
+                $scope.showmeCandid=true;
+                $scope.hidemeCandid=false;
+                $timeout(timer, 1000);       
+            }
+            else{
+                $scope.hidemeCandid=true;
+                $scope.showmeCandid=false;
+            }
+        }).catch(function onError(response) {
+            console.warn("error etting data");
+            console.log(response)
+        });
+    };
 });
