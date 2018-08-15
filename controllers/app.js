@@ -439,7 +439,7 @@ app.run(['$rootScope', '$location','$cookies', function ($rootScope, $location,$
     $rootScope.$on('$routeChangeStart', function (event) {
         if (!$cookies.get("pseudo") &
         !$cookies.get("iduser") & [ '/','/langues','/diplomes','/interets','/diplomes',
-        '/experiences','/unCandidat/:idcandid','/competences','/candidats','/profile',
+        '/experiences','/unCandidat/:idcandid','/competences','/candidats','/profile'
         ]
         .includes($location.path())  ) {
             console.log($cookies.get("iduser"));

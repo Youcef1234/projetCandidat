@@ -10,6 +10,13 @@
 			<button   ng-click="validerModif()" 
 			class="form-control form-group btn btn-lg btn-success" type="submit">Valider
 			</button>
+			<div class="alert-success form-group form-control alert" ng-show="showmeProfile">
+				profil modifie
+			</div>
+			<div class="alert-danger form-group form-control alert" ng-hide="hidemeProfile">
+				erreur modification profil
+			</div>
+
 		</form>
 	</div>
 </div>

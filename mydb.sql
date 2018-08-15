@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 11 août 2018 à 18:26
+-- Généré le :  mer. 15 août 2018 à 12:19
 -- Version du serveur :  5.7.19
 -- Version de PHP :  7.1.9
 
@@ -43,14 +43,14 @@ CREATE TABLE IF NOT EXISTS `candidat` (
   `Ville` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `Remarque` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci,
   PRIMARY KEY (`idcandidat`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `candidat`
 --
 
 INSERT INTO `candidat` (`idcandidat`, `nom`, `prenom`, `age`, `date_naissance`, `Nationalite`, `email`, `telephone`, `adresse`, `Code_Postal`, `Ville`, `Remarque`) VALUES
-(1, 'Es Sadik', 'Hamza', 34, '1984-04-06', 'Francaise', 'hamzaessadik@gmail.com', 605040302, '17 rue des poilu', 57000, 'Metz', 'essadik wech frere');
+(1, 'Es Sadik', 'Hamza', 24, '1984-04-06', 'Francaise', 'hamzaessadik@gmail.com', 605040302, '17 rue des poilu', 57000, 'Metz', 'essadik wech frere');
 
 -- --------------------------------------------------------
 
@@ -88,13 +88,6 @@ CREATE TABLE IF NOT EXISTS `candidat_diplome` (
   KEY `idcandidat` (`idcandidat`),
   KEY `iddiplome` (`iddiplome`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `candidat_diplome`
---
-
-INSERT INTO `candidat_diplome` (`idcandidat`, `iddiplome`) VALUES
-(1, 1);
 
 -- --------------------------------------------------------
 
@@ -161,14 +154,18 @@ CREATE TABLE IF NOT EXISTS `competence` (
   `com_evaluation` int(11) NOT NULL,
   `com_commentaire` mediumtext,
   PRIMARY KEY (`idcompetence`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `competence`
 --
 
 INSERT INTO `competence` (`idcompetence`, `com_nom`, `com_evaluation`, `com_commentaire`) VALUES
-(1, 'CakePHP', 18, 'framework ');
+(1, 'CakePHP', 18, 'framework '),
+(2, 'symfony', 13, 'powerful framework'),
+(3, 'angularjs', 20, 'nice frontend framework'),
+(4, 'java', 20, 'poo'),
+(5, 'sql', 14, 'bdd');
 
 -- --------------------------------------------------------
 
@@ -183,14 +180,17 @@ CREATE TABLE IF NOT EXISTS `diplome` (
   `date_obtention` date DEFAULT NULL,
   `dip_commentaire` mediumtext,
   PRIMARY KEY (`iddiplome`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `diplome`
 --
 
 INSERT INTO `diplome` (`iddiplome`, `type_diplome`, `date_obtention`, `dip_commentaire`) VALUES
-(1, 'Master Informatique', '2004-07-07', 'Mention tres bien');
+(2, 'bac', '2012-12-12', 'SM'),
+(3, 'dut', '2014-01-05', 'informatique'),
+(5, 'master informatique', '2020-12-12', 'prochainement'),
+(6, 'l3 amazigh', '2012-12-12', 'best');
 
 -- --------------------------------------------------------
 
@@ -206,14 +206,15 @@ CREATE TABLE IF NOT EXISTS `experience_pro` (
   `fin_contrat` date DEFAULT NULL,
   `xpro_Commentaire` mediumtext,
   PRIMARY KEY (`idexperience_pro`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `experience_pro`
 --
 
 INSERT INTO `experience_pro` (`idexperience_pro`, `employeur`, `debut_contrat`, `fin_contrat`, `xpro_Commentaire`) VALUES
-(1, 'Microsoft', '2005-01-01', '2010-12-31', NULL);
+(1, 'Microsoft', '2005-01-01', '2010-12-31', 'bonne experience'),
+(2, 'Dyna-info', '2001-12-12', '2012-12-12', 'interessant');
 
 -- --------------------------------------------------------
 
@@ -227,14 +228,14 @@ CREATE TABLE IF NOT EXISTS `interet` (
   `nom` varchar(40) NOT NULL,
   `commentaire` text NOT NULL,
   PRIMARY KEY (`idinteret`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `interet`
 --
 
 INSERT INTO `interet` (`idinteret`, `nom`, `commentaire`) VALUES
-(1, 'sport', 'la musculation');
+(1, 'sport', 'la musculation 3 fois par semaine');
 
 -- --------------------------------------------------------
 
@@ -249,14 +250,17 @@ CREATE TABLE IF NOT EXISTS `langue` (
   `l_evaluation` int(11) DEFAULT NULL,
   `l_commentaire` mediumtext,
   PRIMARY KEY (`idlangue`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `langue`
 --
 
 INSERT INTO `langue` (`idlangue`, `l_nom`, `l_evaluation`, `l_commentaire`) VALUES
-(1, 'anglais', 20, 'Excellent');
+(1, 'anglais', 20, 'Excellent'),
+(2, 'tamazight', 12, 'belle langue'),
+(3, 'francais', 12, 'belle langue aussi'),
+(5, 'spanish', 20, 'stylish language');
 
 -- --------------------------------------------------------
 
@@ -270,7 +274,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `login` varchar(100) DEFAULT NULL,
   `password` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`idusers`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`idusers`, `login`, `password`) VALUES
+(1, 'youcefbouzem', '123'),
+(2, 'root', '123');
 
 --
 -- Contraintes pour les tables déchargées
