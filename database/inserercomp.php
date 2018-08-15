@@ -19,10 +19,11 @@ try
 		'".$data['competence']['com_commentaire']."')" ;
 
     if ($conn->query($sql)) {
-		echo json_encode("Record has been successfully updated");
+		echo json_encode("Record competence has been successfully inserted");
+		
     }
     else{
-		echo json_encode("there is an error with your request");
+		echo json_encode("there is an error with your competence insertion request");
 
 
     }

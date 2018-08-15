@@ -1,6 +1,8 @@
     <div class="container" ng-controller="unCandidat" >
         <div ng-include="'templates/navbar.html'"> </div>
-        <div class="col-offset-3 panel">
+        
+
+        <div class="col-offset-3 panel"> 
             <h3 class="text-center">le candidat</h3>
             <form class="form-well jumbotron" id="idform">
                 <input hidden="true" type="text" class="form-control" 
@@ -40,7 +42,7 @@
                     <input type="text" ng-model="Candidat.telephone" />
                 </div>
                 <div class="col-auto row form-group">
-                <label class="form-label col" > REMARQUES:</label>
+                    <label class="form-label col"> REMARQUES:</label>
                 </div>
                 <div class="col-auto row form-group ">
                     <textarea ng-model="Candidat.Remarque" class="col-offset-3 col-12" form="idform">
@@ -68,7 +70,7 @@
         <h3 class="text-center">les competences</h3>
 
         <div class="row" ng-controller="competences">
-            <form class="form-well jumbotron" id="idformcom" ng-repeat="competence in lescompetences">
+            <form class="mr-3 form-well jumbotron" id="idformcom" ng-repeat="competence in lescompetences">
                 <input hidden="true" type="text" class="form-control" 
                 ng-model="competence.idcompetence"/>
 
@@ -92,7 +94,7 @@
                 <div ng-controller="operationUtilisateur">
                     <div class="col-auto row form-group" > 
                         <input type="submit" ng-click="modifierComp()" 
-                        class=" col-12 row btn btn-success" value="valider Modification" />
+                        class=" col-12 btn btn-success" value="valider Modification" />
                     </div>
                     <div class="alert alert-success" ng-show="showme">
                         <strong> competence modifié.</strong>
@@ -102,32 +104,50 @@
                     </div>
                 </div>
             </form>
-        </div>
-        <div class="row align-self-center" ng-controller="attrCompetences">
-            <form class="form-inline jumbotron" ng-init="chargercomp()">
-                <div class="form-group">
-                    <select ng-model="lacompAttr" class="custom-select" ng-options="comp.com_nom for comp in competencesAattribuer">
-                        
-                    </select>
-                </div>
-                 <div class="col-auto row form-group" data-toggle="collapse" href="#collapseDip" >  
-                    <input type="submit" ng-click="attriberComp()" 
-                    class=" col-12 btn btn-success" value="attribuer" />
 
-                    <div class="alert alert-success col-12 collapse" id="collapseDip" 
-                    ng-show="showmeAttr">
-                        <strong><center> competence attribue.</center></strong>
+            <form ng-controller="attrCompetences" class="form-well jumbotron" id="idformcom">
+
+                <input hidden="true" type="text" class="form-control" 
+                    ng-model="nvcompetence.idcompetence"/>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" > TITRE :</label>
+                    <input type="text"  ng-model="nvcompetence.com_nom" />
+                </div>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" > EVAL:</label>
+                    <input type="text" class="input" ng-model="nvcompetence.com_evaluation" />
+                </div>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" >COMMENTAIRE:</label>
+                </div>
+                
+                <div class="col-auto row form-group ">
+                    <textarea ng-model="nvcompetence.com_commentaire" class="col-offset-3 col-12" form="idformcom">
+                    </textarea>
+                </div>
+                
+                <div >
+                    <div class="col-auto row form-group" > 
+                        <input type="submit" ng-click="attribuerNvComp()" 
+                        class=" col-12 btn btn-success" value="attribuer competence" />
                     </div>
-                    <div class="alert alert-danger" ng-show="hidemeAttr">
-                        <strong><center>Erreur attribution competence.</center></strong>
+                    <div class="alert alert-success" ng-show="showmeAttrib">
+                        <strong> nouvelle competence attribue.</strong>
+                    </div>
+                    <div class="alert alert-danger" ng-show="hidemeAttrib">
+                        <strong> Erreur attribut competence.</strong>
                     </div>
                 </div>
             </form>
         </div>
 
+
         <h3 class="text-center">les diplomes</h3>
         <div class="row" ng-controller="diplomes">
-            <form class="form-well jumbotron" id="idformdip" ng-repeat="diplome in lesdiplomes">
+            <form class="mr-3 form-well jumbotron" id="idformdip" ng-repeat="diplome in lesdiplomes">
                 <input hidden="true" type="text" class="form-control" 
                 ng-model="competence.iddiplome"/>
 
@@ -163,6 +183,41 @@
                 </div>
                 </div>
             </form>
+
+            <form class="form-well jumbotron" ng-controller="attrDiplome"  id="idformcom">
+                <input hidden="true" type="text" class="form-control" 
+                ng-model="nvdiplome.iddiplome"/>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" > TYPE DIPLOME :</label>
+                        <input type="text"  ng-model="nvdiplome.type_diplome" />
+                </div>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" >date obtention :</label>
+                        <input type="text"  ng-model="nvdiplome.date_obtention" />
+                </div>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" >COMMENTAIRE:</label>
+                </div>
+                <div class="col-auto row form-group ">
+                    <textarea ng-model="nvdiplome.dip_commentaire" class="col-offset-3 col-12" form="idformcom">
+                    </textarea>
+                </div>
+                <div >
+                    <div class="col-auto row form-group" > 
+                        <input type="submit" ng-click="attribuerNvDip()" 
+                        class=" col-12 btn btn-success" value="attribuer diplome" />
+                    </div>
+                    <div class="alert alert-success" ng-show="showmeAttribDiplome">
+                        <strong> diplome attribué.</strong>
+                    </div>
+                    <div class="alert alert-danger" ng-show="hidemeAttribDiplome">
+                        <strong> Erreur attribuer diplome.</strong>
+                    </div>
+                </div>
+            </form>
         </div>
 
         <h3 class="text-center">les langues</h3>
@@ -193,11 +248,45 @@
                         <input type="submit" ng-click="modifierLang()" 
                         class=" col-12 btn btn-success" value="valider Modification" />
                         <div class="alert alert-success collapse col-12" id="collapseLang" ng-show="showmeLang">
-                            <strong><center> competence modifié.</center></strong>
+                            <strong><center> langue modifié.</center></strong>
                         </div>
                         <div class="alert alert-danger" ng-show="hidemeLang">
-                            <strong><center>Erreur update competence.</center></strong>
+                            <strong><center>Erreur update langue.</center></strong>
                         </div>
+                    </div>
+                </div>
+            </form>
+
+            <form class="form-well jumbotron" ng-controller="attrLangue" id="idformcom">
+                <input hidden="true" type="text" class="form-control" 
+                ng-model="langue.idlangue"/>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" > TITRE :</label>
+                        <input type="text"  ng-model="nvlangue.l_nom" />
+                </div>
+                <div class="col-auto row form-group">
+                    <label class="form-label col" > EVALUATION :</label>
+                        <input type="text"  ng-model="nvlangue.l_evaluation" />
+                </div>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" >COMMENTAIRE:</label>
+                </div>
+                <div class="col-auto row form-group ">
+                    <textarea ng-model="nvlangue.l_commentaire" class="col-offset-3 col-12" form="idformcom">
+                    </textarea>
+                </div>
+                <div >
+                    <div class="col-auto row form-group" > 
+                        <input type="submit" ng-click="attribuerNvLang()" 
+                        class=" col-12 btn btn-success" value="attribuer langue" />
+                    </div>
+                    <div class="alert alert-success" ng-show="showmeAttribLangue">
+                        <strong> langue ajouté.</strong>
+                    </div>
+                    <div class="alert alert-danger" ng-show="hidemeAttribLangue">
+                        <strong> Erreur ajout langue.</strong>
                     </div>
                 </div>
             </form>
@@ -245,6 +334,50 @@
                     </div>
                 </div>
             </form>
+
+
+            <form class="form-well jumbotron mr-3 " 
+                ng-controller="attrExperience"
+                id="idformcom">
+                <input hidden="true" type="text" class="form-control" 
+                ng-model="nvexperience.idexperience_pro"/>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" > EMPLOYEUR :</label>
+                    <input type="text"  ng-model="nvexperience.employeur" />
+                </div>
+                <div class="col-auto row form-group">
+                    <label class="form-label col" > DEBUT CONTRAT :</label>
+                    <input type="text"  ng-model="nvexperience.debut_contrat" />
+                </div>
+                <div class="col-auto row form-group">
+                    <label class="form-label col" > Fin CONTRAT :</label>
+                    <input type="text"  ng-model="nvexperience.fin_contrat" />
+                </div>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" >COMMENTAIRE:</label>
+                </div>
+
+                <div class="col-auto row form-group ">
+                    <textarea ng-model="nvexperience.xpro_Commentaire" class="col-offset-3 col-12" form="idformcom">
+                    </textarea>
+                </div>
+                <div >
+                <div class="col-auto row form-group" > 
+                    <input type="submit" ng-click="attribuerNvExper()" 
+                    class=" col-12 btn btn-success" value="valider ajout" />
+                </div>
+                <div class="alert alert-success" ng-show="showmeAttribExper">
+                    <strong> experience attribue.</strong>
+                </div>
+                <div class="alert alert-danger" ng-show="hidemeAttribExper">
+                    <strong> Erreur attribution experience.</strong>
+                </div>
+            </div>
+        </form>
+
+
         </div>
 
 
@@ -278,6 +411,39 @@
                     </div>
                 </div>
             </form>
+
+
+            <form class="form-well jumbotron" ng-controller="attrInteret" id="idformcom">
+                <input hidden="true" type="text" class="form-control" 
+                ng-model="competence.idcompetence"/>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" > TITRE :</label>
+                    <input type="text"  ng-model="nvinteret.nom" />
+                </div>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" >COMMENTAIRE:</label>
+                </div>
+                <div class="col-auto row form-group ">
+                    <textarea ng-model="nvinteret.commentaire" class="col-offset-3 col-12" form="idformcom">
+                    </textarea>
+                </div>
+                <div >
+                    <div class="col-auto row form-group" > 
+                        <input type="submit" ng-click="attribuerNvInter()" 
+                        class=" col-12 btn btn-success" value="valider" />
+                    </div>
+                    <div class="alert alert-success" ng-show="showmeAttribInt">
+                        <strong> interet attribue.</strong>
+                    </div>
+                    <div class="alert alert-danger" ng-show="hidemeAttribInt">
+                        <strong> Erreur attribut interet.</strong>
+                    </div>
+                </div>
+            </form>
+
+
         </div>
     </div>
 
