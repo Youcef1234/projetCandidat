@@ -11,18 +11,22 @@ try
 
     $req=$conn->prepare("
       SELECT *
-      FROM langue");
+      FROM experience_pro ex
+      JOIN candidat_experience ce
+      on ex.idexperience_pro=ce.idexperience
+      where ce.idcandidat=".$_GET['idcandid']);
 
     $req->execute();
     $d=array();
     foreach($req->fetchAll() as $row) {
         $d['mydb'][]= array(
-            'idlangue'=>$row['idlangue'],
-            'l_nom' =>$row['l_nom'],
-            'l_evaluation' =>$row['l_evaluation'],
-            'l_commentaire' =>$row['l_commentaire']
-        );
+            'idexperience_pro'=>$row['idexperience_pro'],
+            'employeur'=>$row['employeur'],
 
+            'debut_contrat' =>$row['debut_contrat'],
+            'fin_contrat' =>$row['fin_contrat'],
+            'xpro_Commentaire' =>$row['xpro_Commentaire']
+        );
     }
 
   echo json_encode($d);

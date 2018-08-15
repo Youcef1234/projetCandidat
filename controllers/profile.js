@@ -14,9 +14,12 @@ app.controller('profileController', function($scope,$http,$location,$cookies) {
 		    if((!response.data.includes("error")) ){
      			console.log("ca marche");
      			$scope.showmeProfile=true;
-     			$scope.hidemeProfile=true;
+     			$scope.hidemeProfile=false;
 		    }
 		    else{
+     			$scope.showmeProfile=false;
+     			$scope.hidemeProfile=true;
+
      			console.log("ca ne marche pas");
 
 		    }

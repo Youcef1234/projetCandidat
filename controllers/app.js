@@ -87,6 +87,40 @@ app.controller('listeCandidats', function ($http, $scope) {
         console.log(response)
     });
 })
+.controller('experiences', function ($http, $scope,$routeParams) {
+    $http({
+        method : "GET",
+        url : "http://localhost/projetCandidat/database/selectExperiences.php",
+        headers: {
+            'Accept': '*.*',
+            'Content-Type': 'application/json'
+        },
+        params:{"idcandid":$routeParams.idcandid},
+    }).then(function onSuccess(response) {
+        $scope.lesexperiences = response.data.mydb;
+        console.log(response)
+    }).catch(function onError(response) {
+        console.warn("error getting data");
+        console.log(response)
+    });
+})
+.controller('interets', function ($http, $scope,$routeParams) {
+    $http({
+        method : "GET",
+        url : "http://localhost/projetCandidat/database/selectinterets.php",
+        headers: {
+            'Accept': '*.*',
+            'Content-Type': 'application/json'
+        },
+        params:{"idcandid":$routeParams.idcandid},
+    }).then(function onSuccess(response) {
+        $scope.lesinterets = response.data.mydb;
+        console.log(response)
+    }).catch(function onError(response) {
+        console.warn("error getting data");
+        console.log(response)
+    });
+})
 .controller('operationUtilisateur', function($http, $scope,$location,$timeout){
     $timeout( function(){
         $scope.test1 = "Hello World!";

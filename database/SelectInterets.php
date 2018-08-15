@@ -11,16 +11,19 @@ try
 
     $req=$conn->prepare("
       SELECT *
-      FROM langue");
+      FROM interet i
+      JOIN candidat_interet ci
+      on i.idinteret=ci.idinteret
+      WHERE ci.idcandidat=".$_GET['idcandid']."
+    ");
 
     $req->execute();
     $d=array();
     foreach($req->fetchAll() as $row) {
         $d['mydb'][]= array(
-            'idlangue'=>$row['idlangue'],
-            'l_nom' =>$row['l_nom'],
-            'l_evaluation' =>$row['l_evaluation'],
-            'l_commentaire' =>$row['l_commentaire']
+            'idinteret'=>$row['idinteret'],
+            'nom' =>$row['nom'],
+            'commentaire' =>$row['commentaire']
         );
 
     }

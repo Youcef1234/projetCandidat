@@ -103,6 +103,27 @@
                 </div>
             </form>
         </div>
+        <div class="row align-self-center" ng-controller="attrCompetences">
+            <form class="form-inline jumbotron" ng-init="chargercomp()">
+                <div class="form-group">
+                    <select ng-model="lacompAttr" class="custom-select" ng-options="comp.com_nom for comp in competencesAattribuer">
+                        
+                    </select>
+                </div>
+                 <div class="col-auto row form-group" data-toggle="collapse" href="#collapseDip" >  
+                    <input type="submit" ng-click="attriberComp()" 
+                    class=" col-12 btn btn-success" value="attribuer" />
+
+                    <div class="alert alert-success col-12 collapse" id="collapseDip" 
+                    ng-show="showmeAttr">
+                        <strong><center> competence attribue.</center></strong>
+                    </div>
+                    <div class="alert alert-danger" ng-show="hidemeAttr">
+                        <strong><center>Erreur attribution competence.</center></strong>
+                    </div>
+                </div>
+            </form>
+        </div>
 
         <h3 class="text-center">les diplomes</h3>
         <div class="row" ng-controller="diplomes">
@@ -165,6 +186,83 @@
                 </div>
                 <div class="col-auto row form-group ">
                     <textarea ng-model="langue.l_commentaire" class="col-offset-3 col-12" form="idformlang">
+                    </textarea>
+                </div>
+                <div ng-controller="operationUtilisateur" >
+                    <div class="col-auto row form-group" data-toggle="collapse" href="#collapseLang">  
+                        <input type="submit" ng-click="modifierLang()" 
+                        class=" col-12 btn btn-success" value="valider Modification" />
+                        <div class="alert alert-success collapse col-12" id="collapseLang" ng-show="showmeLang">
+                            <strong><center> competence modifié.</center></strong>
+                        </div>
+                        <div class="alert alert-danger" ng-show="hidemeLang">
+                            <strong><center>Erreur update competence.</center></strong>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <h3 class="text-center">les experiences</h3>
+        <div class="row" ng-controller="experiences">
+            <form class="mr-3 jumbotron" id="idformlang" ng-repeat="experience in lesexperiences">
+                <input hidden="true" type="text" class="form-control" 
+                ng-model="experience.idexperience_pro"/>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" > employeur :</label>
+                        <input type="text"  ng-model="experience.employeur" />
+                </div>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" > DEBUT C:</label>
+                    <input type="text" class="input" ng-model="experience.debut_contrat" />
+                </div>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" > FIN C:</label>
+                    <input type="text" class="input" ng-model="experience.fin_contrat" />
+                </div>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" >EX_commentaire:</label>
+                </div>
+                <div class="col-auto row form-group ">
+                    <textarea ng-model="experience.xpro_Commentaire" class="col-offset-3 col-12" form="idformlang">
+                    </textarea>
+                </div>
+                <div ng-controller="operationUtilisateur" >
+                    <div class="col-auto row form-group" data-toggle="collapse" href="#collapseLang">  
+                        <input type="submit" ng-click="modifierLang()" 
+                        class=" col-12 btn btn-success" value="valider Modification" />
+                        <div class="alert alert-success collapse col-12" id="collapseLang" ng-show="showmeLang">
+                            <strong><center> competence modifié.</center></strong>
+                        </div>
+                        <div class="alert alert-danger" ng-show="hidemeLang">
+                            <strong><center>Erreur update competence.</center></strong>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <h3 class="text-center">les interets</h3>
+        <div class="row" ng-controller="interets">
+            <form class="mr-3 jumbotron" id="idformlang" ng-repeat="interet in lesinterets">
+                <input hidden="true" type="text" class="form-control" 
+                ng-model="interet.idinteret"/>
+
+                <div class="col-auto row form-group">
+                    <label class="form-label col" > NOM :</label>
+                        <input type="text"  ng-model="interet.nom" />
+                </div>
+                <div class="col-auto row form-group">
+                    <label class="form-label col" >INT_commentaire:</label>
+                </div>
+                <div class="col-auto row form-group ">
+                    <textarea ng-model="interet.commentaire" class="col-offset-3 col-12" form="idformlang">
                     </textarea>
                 </div>
                 <div ng-controller="operationUtilisateur" >

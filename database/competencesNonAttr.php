@@ -11,16 +11,22 @@ try
 
     $req=$conn->prepare("
       SELECT *
-      FROM langue");
+      FROM competence c
+      where c.idcompetence not in (
+      select cc.idcompet
+      FROM candidat_competences cc 
+      where cc.idcandidat=".$_GET['idcandid'].")
+    ");
 
     $req->execute();
     $d=array();
     foreach($req->fetchAll() as $row) {
         $d['mydb'][]= array(
-            'idlangue'=>$row['idlangue'],
-            'l_nom' =>$row['l_nom'],
-            'l_evaluation' =>$row['l_evaluation'],
-            'l_commentaire' =>$row['l_commentaire']
+            'idcompetence'=>$row['idcompetence'],
+            'com_nom' =>$row['com_nom'],
+            'com_evaluation' =>$row['com_evaluation'],
+            'com_commentaire' =>$row['com_commentaire']
+        
         );
 
     }
