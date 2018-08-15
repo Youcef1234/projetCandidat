@@ -11,8 +11,7 @@ try
 
     $req=$conn->prepare("
       SELECT *
-      FROM users u
-      WHERE u.login=
+      FROM langue
     ");
 
     $req->execute();
