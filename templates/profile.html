@@ -1,0 +1,17 @@
+
+<div class="container-fluid col-sm-12" ng-init="charger()" data-ng-controller="profileController">
+	<div ng-include="'templates/navbar.html'"> </div>
+	<div class="text-center container-fluid " data-ng-model="userProfile">
+		<form class=" row jumbotron col-sm-5 offset-md-3">
+			<input type="text" hidden="true" class="text-center form-control form-group" data-ng-model="userProfile.idusers"></input>
+			<input type="text" class="text-center form-control form-group" data-ng-model="userProfile.login"></input>
+			<input type="password" class="form-control text-center form-group" data-ng-model="userProfile.password"></input>
+			<input type="password" class="form-control text-center form-group" data-ng-model="confmdp" placeholder="confirmer mot de passe"></input>
+			<button   ng-click="validerModif()" 
+			class="form-control form-group btn btn-lg btn-success" type="submit">Valider
+			</button>
+		</form>
+	</div>
+</div>
+
+

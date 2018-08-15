@@ -1,30 +1,28 @@
 <?php
 
-
 include_once 'Connexion.php';
-
 
 try
 {
     header('Access-Control-Allow-Origin: *');
     $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
 
+    $data = json_decode(file_get_contents('php://input'),true);
     $req=$conn->prepare("
-      SELECT *
-      FROM users u
-      WHERE u.login=
-    ");
+      SELECT * 
+      FROM users u 
+      where u.idusers=".$data['id_user']);
 
     $req->execute();
     $d=array();
-    foreach($req->fetchAll() as $row) {
-        $d['mydb'][]= array(
-            'idlangue'=>$row['idlangue'],
-            'l_nom' =>$row['l_nom'],
-            'l_evaluation' =>$row['l_evaluation'],
-            'l_commentaire' =>$row['l_commentaire']
-        );
+    while($row=$req->fetch()) {
+        $d['mydb']= array(
+            'idusers'=>$row['idusers'],
+            'login' =>$row['login'],
+            'password' =>$row['password'],
+            'status' =>"error",
 
+        );
     }
 
   echo json_encode($d);
@@ -35,6 +33,5 @@ catch  (PDOException $e)
 {
     echo "Connection failed: " . $e->getMessage() . ' in ' . $e->getFile() . ' on line ' . $e->getLine();
 }
-
 
 ?>

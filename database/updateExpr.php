@@ -21,16 +21,11 @@ try
 		WHERE idexperience_pro ='".$data['experience']['idexperience_pro']."'"  ;
 
     if ($conn->query($sql)) {
-		echo json_encode("Record has been successfully updated");
+		echo json_encode("Record profile has been successfully updated");
     }
     else{
-		echo json_encode("there is an error with your request");
-
-
+		echo json_encode("there is an error with your profile record request");
     }
-
-
-
 
 
 }

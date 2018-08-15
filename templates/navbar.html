@@ -30,11 +30,11 @@
         <a class="nav-link" href="#!/profile">Mon profil</a>
       </li>
 
-      <li class="nav-item active nav-link text-uppercase font-italic" data-ng-model="username">connected as {{ username }}
+      <li class="nav-item active nav-link text-uppercase font-italic" ng-controller="usernameController" data-ng-model="username">connected as {{ username }}
       </li>
 
-      <li class="nav-item active">
-        <a class="nav-link" href="#!/profile">logout</a>
+      <li class="nav-item active" ng-controller="logOutController">
+        <input type="submit" ng-click="logout()" class="nav-link" value="logout"></input>
       </li>
     </ul>
   </div>

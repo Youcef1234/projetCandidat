@@ -1,0 +1,21 @@
+
+<div ng-controller="loginController" class="container">
+  <div>
+    <h2 class="text-center">LOGIN</h2>
+
+    <form class=" jumbotron" >
+      <div class="form-group">
+        <input type="text" class="form-control" data-ng-model="pseudo" placeholder="Enter pseudo">
+        </input>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" data-ng-model="mdp"  placeholder="Enter mot de passe">
+        </input>
+      </div>
+      <div class="form-group">
+        <button ng-click="login()" type="submit" class="form-control form-group btn-primary " >Login</button>
+      </div>
+    </form>    
+  </div>
+
+</div>

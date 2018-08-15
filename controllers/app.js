@@ -1,5 +1,5 @@
 
-var app = angular.module("myapp", ['ngRoute']);
+var app = angular.module("myapp", ['ngRoute','ngCookies']);
 
 app.controller('listeCandidats', function ($http, $scope) {
     $http({
@@ -425,6 +425,32 @@ function($routeProvider) {
     })
     .when('/langues',{
         templateUrl:'templates/langues.html'
+    })
+    .when('/login',{
+        templateUrl:'templates/login.html'
+    })
+    .when('/profile',{
+        templateUrl:'templates/profile.html'
     });
 
+}]);
+
+app.run(['$rootScope', '$location','$cookies', function ($rootScope, $location,$cookies) {
+    $rootScope.$on('$routeChangeStart', function (event) {
+        if (!$cookies.get("pseudo") &
+        !$cookies.get("iduser") & [ '/','/langues','/diplomes','/interets','/diplomes',
+        '/experiences','/unCandidat/:idcandid','/competences','/candidats','/profile',
+        ]
+        .includes($location.path())  ) {
+            console.log($cookies.get("iduser"));
+
+            console.log('DENY');
+            event.preventDefault();
+            $location.path('/login');
+        }
+        else {
+            console.log('ALLOW');
+            //console.log($cookies.get("iduser"));
+        }
+    });
 }]);
