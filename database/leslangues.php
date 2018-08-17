@@ -11,12 +11,7 @@ try
 
     $req=$conn->prepare("
       SELECT *
-<<<<<<< HEAD
       FROM langue");
-=======
-      FROM langue
-    ");
->>>>>>> d966d1f731db31d3de64efc972b4a2a6a93440b1
 
     $req->execute();
     $d=array();
