@@ -3,8 +3,10 @@
 
     <h3 class="text-center">liste des competences</h3>
 
+    <input class="form-control col-lg-4 col-md-4 col-sm-3" type="search" data-ng-model="com_nom" placeholder="Search competences" aria-label="Search"></input>
+
     <div class="col-offset-1 col-auto row ">
-        <form class="form-well jumbotron mr-3 " id="idformcom" ng-repeat="competence in lescompetences">
+        <form class="form-well jumbotron mr-3 " id="idformcom" ng-repeat="competence in lescompetences|filter:com_nom track by $index">
             <input hidden="true" type="text" class="form-control" 
             ng-model="competence.idcompetence"/>
 
@@ -22,13 +24,13 @@
                 <label class="form-label col" >COMMENTAIRE:</label>
             </div>
             <div class="col-auto row form-group ">
-                <textarea ng-model="competence.com_commentaire" class="col-offset-3 col-12" form="idformcom">
+                <textarea ng-model="competence.com_commentaire" class="col-12"  form="idformcom">
                 </textarea>
             </div>
             <div ng-controller="operationUtilisateur">
                 <div class="col-auto row form-group" > 
                     <input type="submit" ng-click="modifierComp()" 
-                    class=" col-12 row btn btn-success" value="valider Modification" />
+                    class=" col-12 btn btn-success" value="valider Modification" />
                 </div>
                 <div class="alert alert-success" ng-show="showme">
                     <strong> competence modifié.</strong>
@@ -40,7 +42,7 @@
             <div ng-controller="operationsupprimerUtilisateur">
                 <div class="col-auto row form-group" > 
                     <input type="submit" ng-click="supprimerComp()" 
-                    class=" col-12 row btn btn-warning" value="supprimer" />
+                    class=" col-12  btn btn-warning" value="supprimer" />
                 </div>
                 <div class="alert alert-success" ng-show="showme">
                     <strong> competence supprimer.</strong>
@@ -76,9 +78,9 @@
                 </textarea>
             </div>
             <div ng-controller="operationinsereUtilisateur">
-                <div class="col-auto row form-group" > 
+                <div class="form-group" > 
                     <input type="submit" ng-click="insererComp()" 
-                    class=" col-12 row btn btn-success" value="valider" />
+                    class=" col-12  btn btn-success" value="valider" />
                 </div>
                 <div class="alert alert-success" ng-show="showme">
                     <strong> competence ajouté.</strong>

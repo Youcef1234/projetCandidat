@@ -2,9 +2,10 @@
     <div ng-include="'templates/navbar.html'"> </div>
 
     <h3 class="text-center">liste des experiences</h3>
+    <input class="form-control col-lg-4 col-md-4 col-sm-3" type="search" data-ng-model="employeur" placeholder="Search experiences by EMPLOYEUR/debut_contrat" aria-label="Search"></input>
 
     <div class="col-offset-3 col-auto panel row ">
-        <form class="form-well jumbotron mr-3 " id="idformcom" ng-repeat="experience in lesexperiences">
+        <form class="form-well jumbotron mr-3 " id="idformcom" ng-repeat="experience in lesexperiences|filter:employeur track by $index">
             <input hidden="true" type="text" class="form-control" 
             ng-model="experience.idexperience_pro"/>
 
@@ -89,10 +90,10 @@
                     <input type="submit" ng-click="insererExpr()" 
                     class=" col-12 btn btn-success" value="valider ajout" />
                 </div>
-                <div class="alert alert-success" ng-show="showme">
+                <div class="alert alert-success" ng-show="showmeExpr">
                     <strong> experience inseree.</strong>
                 </div>
-                <div class="alert alert-danger" ng-show="hideme">
+                <div class="alert alert-danger" ng-show="hidemeExpr">
                     <strong> Erreur insertion experience.</strong>
                 </div>
             </div>

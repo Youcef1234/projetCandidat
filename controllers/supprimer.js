@@ -37,6 +37,8 @@ app.controller('operationsupprimerUtilisateur', function($http, $scope,$location
         }).then(function onSuccess(response ) {
             console.log(response)
             if(!response.data.includes("error")){
+                var index= $scope.lescompetences.indexOf($scope.competence);
+                $scope.lescompetences.splice(index,1);
                 $scope.showme=true;
                 $scope.hideme=false;
                 $timeout(timer, 1000);       
@@ -66,6 +68,8 @@ app.controller('operationsupprimerUtilisateur', function($http, $scope,$location
         }).then(function onSuccess(response ) {
             console.log(response)
             if(!response.data.includes("error")){
+                var index= $scope.lesdiplomes.indexOf($scope.diplome);
+                $scope.lesdiplomes.splice(index,1);
                 $scope.showmeDip=true;
                 $scope.hidemeDip=false;
                 $timeout(timer, 1000);       
@@ -95,6 +99,9 @@ app.controller('operationsupprimerUtilisateur', function($http, $scope,$location
         }).then(function onSuccess(response ) {
             console.log(response)
             if(!response.data.includes("error")){
+
+                var index=$scope.lesexperiences.indexOf($scope.experience);
+                $scope.lesexperiences.splice(index,1);
                 $scope.showmeExpr=true;
                 $scope.hidemeExpr=false;
                 $timeout(timer, 1000);       
@@ -123,6 +130,8 @@ app.controller('operationsupprimerUtilisateur', function($http, $scope,$location
         }).then(function onSuccess(response ) {
             console.log(response)
             if(!response.data.includes("error")){
+                var index=$scope.leslangues.indexOf($scope.langue);
+                $scope.leslangues.splice(index,1);
                 $scope.showmeLang=true;
                 $scope.hidemeLang=false;
                 $timeout(timer, 1000);       
@@ -149,6 +158,8 @@ app.controller('operationsupprimerUtilisateur', function($http, $scope,$location
         }).then(function onSuccess(response ) {
             console.log(response)
             if(!response.data.includes("error")){
+                var index=$scope.lesinterets.indexOf($scope.interet);
+                $scope.lesinterets.splice(index,1);
                 $scope.showmeInt=true;
                 $scope.hidemeInt=false;
                 $timeout(timer, 1000);       
@@ -175,6 +186,8 @@ app.controller('operationsupprimerUtilisateur', function($http, $scope,$location
         }).then(function onSuccess(response ) {
             console.log(response)
             if(!response.data.includes("error")){
+                var index=$scope.lescandidats.indexOf($scope.Candidat);
+                $scope.lescandidats.splice(index,1);
                 $scope.showmeCandid=true;
                 $scope.hidemeCandid=false;
                 $timeout(timer, 1000);       

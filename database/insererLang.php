@@ -19,10 +19,10 @@ try
 		'".$data['langue']['l_commentaire']."')" ;
 
     if ($conn->query($sql)) {
-		echo json_encode("Record has been successfully updated");
+		echo json_encode("Record langue has been successfully inserted");
     }
     else{
-		echo json_encode("there is an error with your request");
+		echo json_encode("there is an error with your langue insert request");
     }
 }
 

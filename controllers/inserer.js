@@ -16,6 +16,8 @@ app.controller('operationinsereUtilisateur', function($http, $scope,$location,$t
             $scope.showmeLang=false;
             $scope.showmeCandid=false;
             $scope.hidemeCandid=false;
+            $scope.hidemeExpr=false;
+            $scope.showmeExpr=false;
         }
     }
 
@@ -32,6 +34,8 @@ app.controller('operationinsereUtilisateur', function($http, $scope,$location,$t
         }).then(function onSuccess(response ) {
             console.log(response)
             if(!response.data.includes("error")){
+                console.log($scope.competence);
+                $scope.lescompetences.push($scope.competence);
                 $scope.showme=true;
                 $scope.hideme=false;
                 $timeout(timer, 1000);       
@@ -61,6 +65,7 @@ app.controller('operationinsereUtilisateur', function($http, $scope,$location,$t
         }).then(function onSuccess(response ) {
             console.log(response)
             if(!response.data.includes("error")){
+                $scope.lesdiplomes.push($scope.nvdiplome);
                 $scope.showmeDip=true;
                 $scope.hidemeDip=false;
                 $timeout(timer, 1000);       
@@ -90,6 +95,7 @@ app.controller('operationinsereUtilisateur', function($http, $scope,$location,$t
         }).then(function onSuccess(response ) {
             console.log(response)
             if(!response.data.includes("error")){
+                $scope.lesexperiences.push($scope.nvexperience);
                 $scope.showmeExpr=true;
                 $scope.hidemeExpr=false;
                 $timeout(timer, 1000);       
@@ -119,6 +125,7 @@ app.controller('operationinsereUtilisateur', function($http, $scope,$location,$t
         }).then(function onSuccess(response ) {
             console.log(response)
             if(!response.data.includes("error")){
+                $scope.leslangues.push($scope.langue);
                 $scope.showmeLang=true;
                 $scope.hidemeLang=false;
                 $timeout(timer, 1000);       
@@ -129,12 +136,14 @@ app.controller('operationinsereUtilisateur', function($http, $scope,$location,$t
             }
         }).catch(function onError(response) {
             // Handle error
+            $scope.hidemeLang=true;
+            $scope.showmeLang=false;
             console.warn("error etting data");
             console.log(response)
         });
     };
 
-        $scope.insererInt=function(){  
+    $scope.insererInt=function(){  
         $http({
             method : "POST",
             url : "http://localhost/projetCandidat/database/insererInt.php",
@@ -148,6 +157,7 @@ app.controller('operationinsereUtilisateur', function($http, $scope,$location,$t
         }).then(function onSuccess(response ) {
             console.log(response)
             if(!response.data.includes("error")){
+                $scope.lesinterets.push($scope.interet);
                 $scope.showmeInt=true;
                 $scope.hidemeInt=false;
                 $timeout(timer, 1000);       
@@ -158,6 +168,8 @@ app.controller('operationinsereUtilisateur', function($http, $scope,$location,$t
             }
         }).catch(function onError(response) {
             console.warn("error etting data");
+            $scope.hidemeInt=true;
+            $scope.showmeInt=false;
             console.log(response)
         });
     };
@@ -175,6 +187,7 @@ app.controller('operationinsereUtilisateur', function($http, $scope,$location,$t
         }).then(function onSuccess(response) {
             console.log(response)
             if(!response.data.includes("error")){
+                $scope.lescandidats.push($scope.nvandidat);
                 $scope.showmeCandid=true;
                 $scope.hidemeCandid=false;
                 $timeout(timer, 1000);       
@@ -186,6 +199,8 @@ app.controller('operationinsereUtilisateur', function($http, $scope,$location,$t
         }).catch(function onError(response) {
             console.warn("error etting data");
             console.log(response)
+            $scope.hidemeInt=true;
+            $scope.showmeInt=false;
         });
     };
 });
