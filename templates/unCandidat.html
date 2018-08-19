@@ -1,8 +1,7 @@
-    <div class="container" ng-controller="unCandidat" >
+    <div  class="container" ng-controller="unCandidat" >
         <div ng-include="'templates/navbar.html'"> </div>
         
-
-        <div class="col-offset-3 panel"> 
+        <div  id="candidat" ng-controller="HTMLtoPDF" class="col-offset-3 panel"> 
             <h3 class="text-center">le candidat</h3>
             <form class="form-well jumbotron" id="idform">
                 <input hidden="true" type="text" class="form-control" 
@@ -10,7 +9,7 @@
 
                 <div class="col-auto row form-group">
                     <label class="form-label col" > NOM :</label>
-                        <input type="text"  ng-model="Candidat.nom" />
+                        <input type="text" id="nom"  ng-model="Candidat.nom" />
                     <label class="form-label col" > PRENOM:</label>
                         <input type="text" ng-model="Candidat.prenom" />
                 </div>

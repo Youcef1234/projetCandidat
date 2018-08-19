@@ -10,12 +10,18 @@
         <input hidden="true" type="text" class="form-control" ng-model="Candidat.idcandidat"/>
 
         <div class="col-auto row form-group">
-            <label class="form-label col" > NOM :</label><input type="text"  ng-model="Candidat.nom" />
+            <label class="form-label col" > NOM :</label><input id="cd_id" type="text"  ng-model="Candidat.nom" />
             <label class="form-label col" > PRENOM:</label><input type="text" ng-model="Candidat.prenom" />
+
         </div>
         <div class="col-auto row form-group" ng-controller="operationUtilisateur">
-            <input type="submit" ng-click="consulterCandidat(Candidat.idcandidat)" class=" col-12 btn btn-success" value="consulter " />
+            <input type="submit" ng-click="consulterCandidat(Candidat.idcandidat)" class=" col-12 btn btn-primary" value="consulter " />
         </div>
+        <div class="col-auto row form-group" ng-controller="operationUtilisateur">
+            <input type="submit" ng-click="modifierCandidat(Candidat.idcandidat)" class=" col-12 btn btn-success" value="modifierCandidat" />
+        </div>
+        
+
         <div class="col-auto row form-group" ng-controller="operationsupprimerUtilisateur">
             <input type="submit" ng-click="supprimerCandidat()" class=" col-12 btn btn-warning" value="supprimer " />
             <div class="alert alert-success col-12" ng-show="showmeCandid">

@@ -1,0 +1,132 @@
+<div class="container"  ng-controller="unCandidat">
+    <div ng-include="'templates/navbar.html'"> </div>
+        
+    <div ng-controller="HTMLtoPDF">
+        <center>
+            <button class="btn btn-success"  ng-click="convert()" >export PDF</button>
+        </center>
+    </div>
+    <div id="contenu">
+
+        <div class="col-offset-3 panel">
+            <h3 class="text-center">le candidat</h3>
+            <table class="table table-bordered " id="idform">
+
+                <tr class="col-auto row form-group">
+                    <th class="form-label col"> NOM :</th>
+                    <td class="col"> {{Candidat.nom}} </td>
+                    <th class="form-label col"> PRENOM:</th>
+                    <td class="col"> {{Candidat.prenom}} </td>
+                </tr>
+
+                <tr class="col-auto row form-group">
+                    <th class="form-label col"> AGE:</th>
+                    <td class="col"> {{Candidat.age}} </td>
+                    <th class="form-label col"> DATE DE NAISSANCE: </th>
+                    <td class="col"> {{Candidat.date_naissance}} </td>
+                </tr>
+
+                <tr class="col-auto row form-group">
+                    <th class="form-label col"> NATIONALITE:</th>
+                    <td class="col"> {{Candidat.Nationalite}} </td>
+                    <th class="form-label col"> ADRESSE:</th>
+                    <td class="col">{{Candidat.adresse}} </td>
+                </tr>
+
+                <tr class="col-auto row form-group">
+                    <th class="form-label col"> VILLE:</th>
+                    <td class="col"> {{Candidat.Ville}} </td>
+                    <th class="form-label col"> CODE POSTAL:</th>
+                    <td class="col"> {{Candidat.Code_Postal}} </td>
+                </tr>
+                <tr class="col-auto row form-group">
+                    <th class="form-label col"> EMAIL:</th>
+                    <td class="col"> {{Candidat.email}} </td>
+                    <th class="form-label col"> TEL:</th>
+                    <td class="col"> {{Candidat.telephone}} </td>
+                </tr>
+
+            </table>
+        </div>
+
+
+        <h3 class="text-center">les competences</h3>
+
+        <div class="row" ng-controller="competences">
+            <table class="table table-bordered" id="idformcom" >
+                <tr class="col-auto row">
+                    <th class="col text-center"> Titre</th>
+                    <th class="col text-center">EVAL</th>
+                </tr>
+
+                <tr class="row col-auto" ng-repeat="competence in lescompetences">
+                    <td class="col text-center">{{competence.com_nom}}</td>
+                    <td class="col text-center">{{competence.com_evaluation}}</td>
+                </tr>                    
+                
+            </table>
+        </div>
+
+
+        <h3 class="text-center">les diplomes</h3>
+        <div class="row" ng-controller="diplomes">
+            <table class="table table-bordered" id="idformdip" >
+                <tr class="col-auto row">
+                    <th class="col text-center"> TYPE</th>
+                    <th class="col text-center">DATE OBTENTION</th>
+                </tr>
+               <tr class="row col-auto" ng-repeat="diplome in lesdiplomes">
+                    <td class="col text-center">{{diplome.type_diplome}}</td>
+                    <td class="col text-center">{{diplome.date_obtention}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <h3 class="text-center">les langues</h3>
+        <div class="row" ng-controller="langues">
+            <table class="table table-bordered" >
+                <tr class="col-auto row">
+                    <th class="col text-center"> TITRE</th>
+                    <th class="col text-center">EVALUATION</th>
+                </tr>
+                <tr class="col-auto row" ng-repeat="langue in leslangues">
+                    <td class="col text-center">{{langue.l_nom}}</td>
+                    <td class="col text-center">{{langue.l_evaluation}}</td>  
+                </tr>
+            </table>
+        </div>
+
+
+        <h3 class="text-center">les experiences</h3>
+        <div class="row" ng-controller="experiences">
+            <table class="table table-bordered" ng-repeat="experience in lesexperiences">
+
+                <tr class="col-auto row form-group">
+                    <th class="col text-center"> EMPLOYEUR</th>
+                    <th class="col text-center">DEBUT CONTRAT</th>
+                    <th class="col text-center">FIN CONTRAT</th>
+                </tr>                
+                <tr class="col-auto row">
+                    <td class="col text-center">{{experience.employeur}} </td>
+                    <td class="col text-center"> {{experience.debut_contrat}}</td>
+                    <td class="col text-center">{{experience.fin_contrat}} </td>
+
+                </tr>
+            </table>
+        </div>
+
+
+        <h3 class="text-center">les interets</h3>
+        <div class="row" ng-controller="interets">
+            <table class="table table-bordered" id="idformlang" >
+                <tr class="col-auto row form-group">
+                    <th class="col text-center"> NOM</th>
+                </tr>                
+                <tr class="col-auto row form-group" ng-repeat="interet in lesinterets">
+                    <td class="col text-center"> {{interet.nom}}</td>
+                </tr>    
+            </table>
+        </div>
+    </div>
+</div>
+

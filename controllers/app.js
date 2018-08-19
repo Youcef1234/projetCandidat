@@ -150,8 +150,13 @@ app.controller('listeCandidats', function ($http, $scope) {
         
     $scope.consulterCandidat=function($parameter){
         console.log($parameter);
+        $location.url('/export/'+$parameter);
+    };
+    $scope.modifierCandidat=function($parameter){
+        console.log($parameter);
         $location.url('/unCandidat/'+$parameter);
     };
+
     $scope.modifier=function(){
         $http({
             method : "POST",
@@ -447,6 +452,10 @@ function($routeProvider) {
     .when('/unCandidat/:idcandid', {
         templateUrl: 'templates/unCandidat.html',
     })
+    .when('/export/:idcandid', {
+        templateUrl: 'templates/export.html',
+    })
+
     .when('/experiences', {
         templateUrl: 'templates/experiences.html',
     })

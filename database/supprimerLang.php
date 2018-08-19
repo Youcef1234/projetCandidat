@@ -9,7 +9,6 @@ try
 	header('Access-Control-Allow-Origin: *');
 	header('Content-Type: application/json');
 
-
 	$data = json_decode(file_get_contents('php://input'),true);
 	
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -24,11 +23,6 @@ try
 
 
     }
-
-
-
-
-
 }
 
 catch (PDOException $e)
