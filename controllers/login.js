@@ -17,8 +17,8 @@ app.controller('loginController', function($scope,$http,$location,$cookies) {
           $cookies.put("iduser",response.data['mydb']['idusers']);
           $cookies.put("pseudo",response.data['mydb']['login']);
           
-          console.log( $cookies.get("iduser"));
-          console.log( $cookies.get("pseudo"));
+          console.log($cookies.get("iduser"));
+          console.log($cookies.get("pseudo"));
           $location.path('/candidats');
         }
         else {
