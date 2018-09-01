@@ -24,7 +24,7 @@ app.controller('operationinsereUtilisateur', function($http, $scope,$location,$t
     $scope.insererComp=function(){
         $http({
             method : "POST",
-            url : "http://localhost/projetCandidat/database/inserercomp.php",
+            url : "http://localhost/ProjetCandidat/projetCandidat/backend/inserercomp.php",
             headers: {
                 'Accept': '*.*',
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -54,7 +54,7 @@ app.controller('operationinsereUtilisateur', function($http, $scope,$location,$t
     $scope.insererDip=function(){	
         $http({
             method : "POST",
-            url : "http://localhost/projetCandidat/database/insererDip.php",
+            url : "http://localhost/ProjetCandidat/projetCandidat/backend/insererDip.php",
             headers: {
                 'Accept': '*.*',
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -84,7 +84,7 @@ app.controller('operationinsereUtilisateur', function($http, $scope,$location,$t
     $scope.insererExpr=function(){	
         $http({
             method : "POST",
-            url : "http://localhost/projetCandidat/database/insererExp.php",
+            url : "http://localhost/ProjetCandidat/projetCandidat/backend/insererExp.php",
             headers: {
                 'Accept': '*.*',
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -114,7 +114,7 @@ app.controller('operationinsereUtilisateur', function($http, $scope,$location,$t
     $scope.insererLang=function(){	
         $http({
             method : "POST",
-            url : "http://localhost/projetCandidat/database/insererLang.php",
+            url : "http://localhost/ProjetCandidat/projetCandidat/backend/insererLang.php",
             headers: {
                 'Accept': '*.*',
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -123,7 +123,7 @@ app.controller('operationinsereUtilisateur', function($http, $scope,$location,$t
             data:{"langue":$scope.langue},
 
         }).then(function onSuccess(response ) {
-            console.log(response)
+            console.log(response);
             if(!response.data.includes("error")){
                 $scope.leslangues.push($scope.langue);
                 $scope.showmeLang=true;
@@ -146,7 +146,7 @@ app.controller('operationinsereUtilisateur', function($http, $scope,$location,$t
     $scope.insererInt=function(){  
         $http({
             method : "POST",
-            url : "http://localhost/projetCandidat/database/insererInt.php",
+            url : "http://localhost/ProjetCandidat/projetCandidat/backend/insererInt.php",
             headers: {
                 'Accept': '*.*',
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -155,7 +155,7 @@ app.controller('operationinsereUtilisateur', function($http, $scope,$location,$t
             data:{"interet":$scope.interet},
 
         }).then(function onSuccess(response ) {
-            console.log(response)
+            console.log(response);
             if(!response.data.includes("error")){
                 $scope.lesinterets.push($scope.interet);
                 $scope.showmeInt=true;
@@ -176,7 +176,7 @@ app.controller('operationinsereUtilisateur', function($http, $scope,$location,$t
     $scope.insererCandidat=function(){  
         $http({
             method : "POST",
-            url : "http://localhost/projetCandidat/database/insertCandidat.php",
+            url : "http://localhost/ProjetCandidat/projetCandidat/backend/insertCandidat.php",
             headers: {
                 'Accept': '*.*',
                 'Content-Type': 'application/x-www-form-urlencoded'

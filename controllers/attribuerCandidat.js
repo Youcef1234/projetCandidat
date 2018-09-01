@@ -4,7 +4,7 @@ app.controller('attrCompetences', function ($http, $scope,$routeParams) {
     $scope.attribuerNvComp=function() {
 	    $http({
 	        method : "POST",
-	        url : "http://localhost/projetCandidat/database/attrCompetences.php",
+	        url : "http://localhost/ProjetCandidat/projetCandidat/backend/attrCompetences.php",
 	        headers: {
 	            'Accept': '*.*',
 	            'Content-Type': 'application/x-www-form-urlencoded'
@@ -30,7 +30,7 @@ app.controller('attrCompetences', function ($http, $scope,$routeParams) {
 	        console.warn("error getting data");
 	       	$scope.hidemeAttrib=true;
 	        $scope.showmeAttrib=false;
-
+            backend
 	        console.log(response)
 	    });
 	};
@@ -41,7 +41,7 @@ app.controller('attrCompetences', function ($http, $scope,$routeParams) {
     $scope.attribuerNvDip=function() {
 	    $http({
 	        method : "POST",
-	        url : "http://localhost/projetCandidat/database/attrDiplomes.php",
+	        url : "http://localhost/ProjetCandidat/projetCandidat//attrDiplomes.php",
 	        headers: {
 	            'Accept': '*.*',
 	            'Content-Type': 'application/x-www-form-urlencoded'
@@ -77,7 +77,7 @@ app.controller('attrCompetences', function ($http, $scope,$routeParams) {
     $scope.attribuerNvLang=function() {
 	    $http({
 	        method : "POST",
-	        url : "http://localhost/projetCandidat/database/attrLangues.php",
+	        url : "http://localhost/ProjetCandidat/projetCandidat/backend/attrLangues.php",
 	        headers: {
 	            'Accept': '*.*',
 	            'Content-Type': 'application/x-www-form-urlencoded'
@@ -112,7 +112,7 @@ app.controller('attrCompetences', function ($http, $scope,$routeParams) {
     $scope.attribuerNvExper=function() {
 	    $http({
 	        method : "POST",
-	        url : "http://localhost/projetCandidat/database/attrExperiences.php",
+	        url : "http://localhost/ProjetCandidat/projetCandidat/backend/attrExperiences.php",
 	        headers: {
 	            'Accept': '*.*',
 	            'Content-Type': 'application/x-www-form-urlencoded'
@@ -147,7 +147,7 @@ app.controller('attrCompetences', function ($http, $scope,$routeParams) {
     $scope.attribuerNvInter=function() {
 	    $http({
 	        method : "POST",
-	        url : "http://localhost/projetCandidat/database/attrInteret.php",
+	        url : "http://localhost/ProjetCandidat/projetCandidat/backend/attrInteret.php",
 	        headers: {
 	            'Accept': '*.*',
 	            'Content-Type': 'application/x-www-form-urlencoded'

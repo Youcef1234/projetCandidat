@@ -27,7 +27,7 @@ app.controller('operationsupprimerUtilisateur', function($http, $scope,$location
     $scope.supprimerComp=function(){
         $http({
             method : "POST",
-            url : "http://localhost/projetCandidat/database/supprimercomp.php",
+            url : "http://localhost/ProjetCandidat/projetCandidat/backend/supprimercomp.php",
             headers: {
                 'Accept': '*.*',
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -57,7 +57,7 @@ app.controller('operationsupprimerUtilisateur', function($http, $scope,$location
     $scope.supprimerDip=function(){	
         $http({
             method : "POST",
-            url : "http://localhost/projetCandidat/database/supprimerDip.php",
+            url : "http://localhost/ProjetCandidat/projetCandidat/backend/supprimerDip.php",
             headers: {
                 'Accept': '*.*',
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -88,7 +88,7 @@ app.controller('operationsupprimerUtilisateur', function($http, $scope,$location
     $scope.supprimerExpr=function(){	
         $http({
             method : "POST",
-            url : "http://localhost/projetCandidat/database/supprimerExpr.php",
+            url : "http://localhost/ProjetCandidat/projetCandidat/backend/supprimerExpr.php",
             headers: {
                 'Accept': '*.*',
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -120,7 +120,7 @@ app.controller('operationsupprimerUtilisateur', function($http, $scope,$location
     $scope.supprimerLang=function(){    
         $http({
             method : "POST",
-            url : "http://localhost/projetCandidat/database/supprimerLang.php",
+            url : "http://localhost/ProjetCandidat/projetCandidat/backend/supprimerLang.php",
             headers: {
                 'Accept': '*.*',
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -148,7 +148,7 @@ app.controller('operationsupprimerUtilisateur', function($http, $scope,$location
     $scope.supprimerInt=function(){    
         $http({
             method : "POST",
-            url : "http://localhost/projetCandidat/database/supprimerInt.php",
+            url : "http://localhost/ProjetCandidat/projetCandidat/backend/supprimerInt.php",
             headers: {
                 'Accept': '*.*',
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -176,7 +176,7 @@ app.controller('operationsupprimerUtilisateur', function($http, $scope,$location
     $scope.supprimerCandidat=function(){    
         $http({
             method : "POST",
-            url : "http://localhost/projetCandidat/database/supprimerCandid.php",
+            url : "http://localhost/ProjetCandidat/projetCandidat/backend/supprimerCandid.php",
             headers: {
                 'Accept': '*.*',
                 'Content-Type': 'application/x-www-form-urlencoded'

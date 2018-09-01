@@ -4,7 +4,7 @@ app.controller('profileController', function($scope,$http,$location,$cookies) {
 		datas={"user":$scope.userProfile,"confmdp":$scope.confmdp };
 		$http({
 			method : "POST",
-			url : "http://localhost/projetCandidat/database/updateprofile.php",
+			url : "http://localhost/ProjetCandidat/projetCandidat/backend/updateprofile.php",
 			headers: {
 			  'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
 			  'Content-Type': 'application/x-www-form-urlencoded'
@@ -29,7 +29,7 @@ app.controller('profileController', function($scope,$http,$location,$cookies) {
   		datas={"id_user":$cookies.get("iduser")} ;
 		$http({
 		    method : "POST",
-		    url : "http://localhost/projetCandidat/database/profile.php",
+		    url : "http://localhost/ProjetCandidat/projetCandidat/backend/profile.php",
 		    headers: {
 		      'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
 		      'Content-Type': 'application/x-www-form-urlencoded'
@@ -38,11 +38,11 @@ app.controller('profileController', function($scope,$http,$location,$cookies) {
 		}).then(function mySuccess(response) {
 			//console.log(response.data['mydb']['status']);
 		    if( angular.isDefined(response.data['mydb']['status']) ){
-     			console.log("ca marche");
+     			console.log("works");
 		    	$scope.userProfile=response.data['mydb'];
             }
             else{
-            	console.log("ca ne marche pas");
+            	console.log("error");
             }
   		});
   	};

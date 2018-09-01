@@ -8,7 +8,7 @@ app.controller('HTMLtoPDF', function ($http, $scope) {
       '#bypassme': function(element, renderer){
         return true
       }
-    }
+    };
     margins = {
       top: 50,
       left: 60,
