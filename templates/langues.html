@@ -1,8 +1,10 @@
 <div class="container" ng-controller="listeLangues">
     <div ng-include="'templates/navbar.html'"> </div>
 
-    <h3 class="text-center">liste des langues</h3>
     <input class="form-control col-lg-4 col-md-4 col-sm-3" type="search" data-ng-model="titre" placeholder="Search langues" aria-label="Search"></input>
+
+    <h3 class="text-center">liste des langues</h3>
+
     <div class="col-offset-3 col-auto panel row ">
         <form class="form-well jumbotron mr-3 " id="idformcom" ng-repeat="langue in leslangues|filter:titre track by $index">
             <input hidden="true" type="text" class="form-control" 

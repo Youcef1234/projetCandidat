@@ -1,11 +1,11 @@
 <div class="container" ng-controller="listeDiplomes">
     <div ng-include="'templates/navbar.html'"> </div>
 
+    <input class="form-control col-lg-4 col-md-4 col-sm-3" type="search" data-ng-model="type_diplome" placeholder="Search diplomes" aria-label="Search"></input>
     <h3 class="text-center">liste des diplomes</h3>
-    <input class="form-control col-lg-4 col-md-4 col-sm-3" type="search" data-ng-model="type_diplome" placeholder="Search diplomes by type" aria-label="Search"></input>
     <div class="col-offset-3 col-auto panel row ">
         <form class="form-well jumbotron mr-3 col-lg-3 col-md-3 col-sm-3" id="idformcom" ng-repeat="diplome in lesdiplomes|filter:type_diplome track by $index">
-            <input hidden="true" type="text" class="form-control" 
+            <input hidden="true" type="text" class="form-control"
             ng-model="diplome.iddiplome"/>
 
             <div class="col-auto row form-group">

@@ -4,26 +4,28 @@ app.controller('loginController', function($scope,$http,$location,$cookies) {
       datas={"login" :$scope.pseudo,"mdp":$scope.mdp};
       $http({
         method : "POST",
-        url : "http://localhost/projetCandidat/database/login.php",
+        url : "http://localhost/ProjetCandidat/projetCandidat/backend/login.php",
         headers: {
           'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
           'Content-Type': 'application/x-www-form-urlencoded'
         },
         data:datas,
       }).then(function mySuccess(response) {
-
-        if(angular.isDefined(response.data['mydb']['status']) ){
+            console.log(response.data.jwt)
+        /*if(angular.isDefined(response.data['mydb']['status']) ){
 
           $cookies.put("iduser",response.data['mydb']['idusers']);
           $cookies.put("pseudo",response.data['mydb']['login']);
-          
-          console.log( $cookies.get("iduser"));
-          console.log( $cookies.get("pseudo"));
+            $cookies.remove("pseudo");
+
+         // console.log( $cookies.get("iduser"));
+        //  console.log( $cookies.get("pseudo"));
           $location.path('/candidats');
         }
         else {
          //$scope.res1 = response.data['error'];
-        }
+
+        }*/
       });
     }
     else{
@@ -40,6 +42,7 @@ app.controller('loginController', function($scope,$http,$location,$cookies) {
     $location.path('/login');
   };  
 })
+
 .controller('usernameController',function($scope,$http,$location,$cookies,$route) {
   $scope.username=$cookies.get("pseudo"); 
 });

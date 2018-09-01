@@ -1,10 +1,13 @@
 
 var app = angular.module("myapp", ['ngRoute','ngCookies']);
 
+//Navbar
+
+
 app.controller('listeCandidats', function ($http, $scope) {
     $http({
         method : "GET",
-        url : "http://localhost/projetCandidat/database/lesCandidats.php",
+        url : "http://localhost/ProjetCandidat/projetCandidat/backend/lesCandidats.php",
         headers: {
             'Accept': '*.*',
             'Content-Type': 'application/json'
@@ -21,7 +24,7 @@ app.controller('listeCandidats', function ($http, $scope) {
 .controller('unCandidat', function ($http, $scope,$routeParams) {
     $http({
         method : "GET",
-        url : "http://localhost/projetCandidat/database/select.php",
+        url : "http://localhost/ProjetCandidat/projetCandidat/backend/Select.php",
         headers: {
             'Accept': '*.*',
             'Content-Type': 'application/json'
@@ -39,7 +42,7 @@ app.controller('listeCandidats', function ($http, $scope) {
 .controller('competences', function ($http, $scope,$routeParams) {
     $http({
         method : "GET",
-        url : "http://localhost/projetCandidat/database/selectCompetences.php",
+        url : "http://localhost/ProjetCandidat/projetCandidat/backend/SelectCompetences.php",
         headers: {
             'Accept': '*.*',
             'Content-Type': 'application/json'
@@ -56,7 +59,7 @@ app.controller('listeCandidats', function ($http, $scope) {
 .controller('diplomes', function ($http, $scope,$routeParams) {
     $http({
         method : "GET",
-        url : "http://localhost/projetCandidat/database/selectDiplomes.php",
+        url : "http://localhost/ProjetCandidat/projetCandidat/backend/SelectDiplomes.php",
         headers: {
             'Accept': '*.*',
             'Content-Type': 'application/json'
@@ -73,7 +76,7 @@ app.controller('listeCandidats', function ($http, $scope) {
 .controller('langues', function ($http, $scope,$routeParams) {
     $http({
         method : "GET",
-        url : "http://localhost/projetCandidat/database/selectLangues.php",
+        url : "http://localhost/ProjetCandidat/projetCandidat/backend/SelectLangues.php",
         headers: {
             'Accept': '*.*',
             'Content-Type': 'application/json'
@@ -90,7 +93,7 @@ app.controller('listeCandidats', function ($http, $scope) {
 .controller('experiences', function ($http, $scope,$routeParams) {
     $http({
         method : "GET",
-        url : "http://localhost/projetCandidat/database/selectExperiences.php",
+        url : "http://localhost/ProjetCandidat/projetCandidat/backend/SelectExperiences.php",
         headers: {
             'Accept': '*.*',
             'Content-Type': 'application/json'
@@ -107,7 +110,7 @@ app.controller('listeCandidats', function ($http, $scope) {
 .controller('interets', function ($http, $scope,$routeParams) {
     $http({
         method : "GET",
-        url : "http://localhost/projetCandidat/database/selectinterets.php",
+        url : "http://localhost/ProjetCandidat/projetCandidat/backend/SelectInterets.php",
         headers: {
             'Accept': '*.*',
             'Content-Type': 'application/json'
@@ -160,7 +163,7 @@ app.controller('listeCandidats', function ($http, $scope) {
     $scope.modifier=function(){
         $http({
             method : "POST",
-            url : "http://localhost/projetCandidat/database/update.php",
+            url : "http://localhost/ProjetCandidat/projetCandidat/backend/Update.php",
             headers: {
                 'Accept': '*.*',
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -190,7 +193,7 @@ app.controller('listeCandidats', function ($http, $scope) {
     $scope.modifierComp=function(){
         $http({
             method : "POST",
-            url : "http://localhost/projetCandidat/database/updateComp.php",
+            url : "http://localhost/ProjetCandidat/projetCandidat/backend/updateComp.php",
             headers: {
                 'Accept': '*.*',
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -221,7 +224,7 @@ app.controller('listeCandidats', function ($http, $scope) {
     $scope.modifierDip=function(){
         $http({
             method : "POST",
-            url : "http://localhost/projetCandidat/database/updateDip.php",
+            url : "http://localhost/ProjetCandidat/projetCandidat/backend/updateDip.php",
             headers: {
                 'Accept': '*.*',
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -252,7 +255,7 @@ app.controller('listeCandidats', function ($http, $scope) {
     $scope.modifierInt=function(){
         $http({
             method : "POST",
-            url : "http://localhost/projetCandidat/database/updateInt.php",
+            url : "http://localhost/ProjetCandidat/projetCandidat/backend/updateInt.php",
             headers: {
                 'Accept': '*.*',
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -283,7 +286,7 @@ app.controller('listeCandidats', function ($http, $scope) {
     $scope.modifierLang=function(){
         $http({
             method : "POST",
-            url : "http://localhost/projetCandidat/database/updateLang.php",
+            url : "http://localhost/ProjetCandidat/projetCandidat/backend/updateLang.php",
             headers: {
                 'Accept': '*.*',
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -315,7 +318,7 @@ app.controller('listeCandidats', function ($http, $scope) {
     $scope.modifierExpr=function(){
         $http({
             method : "POST",
-            url : "http://localhost/projetCandidat/database/updateExpr.php",
+            url : "http://localhost/ProjetCandidat/projetCandidat/backend/updateExpr.php",
             headers: {
                 'Accept': '*.*',
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -346,7 +349,7 @@ app.controller('listeCandidats', function ($http, $scope) {
 }).controller('listecompetences', function ($http, $scope,$routeParams) {
     $http({
         method : "GET",
-        url : "http://localhost/projetCandidat/database/lescompetences.php",
+        url : "http://localhost/ProjetCandidat/projetCandidat/backend/lescompetences.php",
         headers: {
             'Accept': '*.*',
             'Content-Type': 'application/json'
@@ -361,7 +364,7 @@ app.controller('listeCandidats', function ($http, $scope) {
 }).controller('listeinterets', function ($http, $scope,$routeParams) {
     $http({
         method : "GET",
-        url : "http://localhost/projetCandidat/database/lesinterets.php",
+        url : "http://localhost/ProjetCandidat/projetCandidat/backend/lesinterets.php",
         headers: {
             'Accept': '*.*',
             'Content-Type': 'application/json'
@@ -376,7 +379,7 @@ app.controller('listeCandidats', function ($http, $scope) {
 }).controller('listeinterets', function ($http, $scope,$routeParams) {
     $http({
         method : "GET",
-        url : "http://localhost/projetCandidat/database/lesinterets.php",
+        url : "http://localhost/ProjetCandidat/projetCandidat/backend/lesinterets.php",
         headers: {
             'Accept': '*.*',
             'Content-Type': 'application/json'
@@ -391,7 +394,7 @@ app.controller('listeCandidats', function ($http, $scope) {
 }).controller('listeDiplomes', function ($http, $scope,$routeParams) {
     $http({
         method : "GET",
-        url : "http://localhost/projetCandidat/database/lesdiplomes.php",
+        url : "http://localhost/ProjetCandidat/projetCandidat/backend/lesdiplomes.php",
         headers: {
             'Accept': '*.*',
             'Content-Type': 'application/json'
@@ -406,7 +409,7 @@ app.controller('listeCandidats', function ($http, $scope) {
 }).controller('listeExperiences', function ($http, $scope,$routeParams) {
     $http({
         method : "GET",
-        url : "http://localhost/projetCandidat/database/lesexperiences.php",
+        url : "http://localhost/ProjetCandidat/projetCandidat/backend/lesexperiences.php",
         headers: {
             'Accept': '*.*',
             'Content-Type': 'application/json'
@@ -421,7 +424,7 @@ app.controller('listeCandidats', function ($http, $scope) {
 }).controller('listeLangues', function ($http, $scope,$routeParams) {
     $http({
         method : "GET",
-        url : "http://localhost/projetCandidat/database/leslangues.php",
+        url : "http://localhost/ProjetCandidat/projetCandidat/backend/leslangues.php",
         headers: {
             'Accept': '*.*',
             'Content-Type': 'application/json'
@@ -487,7 +490,7 @@ app.run(['$rootScope', '$location','$cookies', function ($rootScope, $location,$
         '/experiences','/unCandidat/:idcandid','/competences','/candidats','/profile'
         ]
         .includes($location.path())  ) {
-            console.log($cookies.get("iduser"));
+           //console.log($cookies.get("iduser"));
 
             console.log('DENY');
             event.preventDefault();

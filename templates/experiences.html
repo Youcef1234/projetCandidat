@@ -1,9 +1,8 @@
 <div class="container" ng-controller="listeExperiences">
     <div ng-include="'templates/navbar.html'"> </div>
 
+    <input class="form-control col-lg-4 col-md-4 col-sm-3" type="search" data-ng-model="employeur" placeholder="Search experiences" aria-label="Search"></input>
     <h3 class="text-center">liste des experiences</h3>
-    <input class="form-control col-lg-4 col-md-4 col-sm-3" type="search" data-ng-model="employeur" placeholder="Search experiences by EMPLOYEUR/debut_contrat" aria-label="Search"></input>
-
     <div class="col-offset-3 col-auto panel row ">
         <form class="form-well jumbotron mr-3 " id="idformcom" ng-repeat="experience in lesexperiences|filter:employeur track by $index">
             <input hidden="true" type="text" class="form-control" 

@@ -1,41 +1,43 @@
 <nav class=" navbar navbar-expand-lg navbar-dark bg-secondary">
-  <a class="navbar-brand" href="#/">HOME</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse" aria-controls="#navbarResponsive"  aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#!/candidats">candidats <span class="sr-only">(current)</span></a>
-      </li>
+    <a class="navbar-brand" href="#/"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse"
+            aria-controls="#navbarResponsive" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
 
-      <li class="nav-item active">
-        <a class="nav-link" href="#!/diplomes">diplomes <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#!/experiences">experiences <span class="sr-only">(current)</span></a>
-      </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#!/candidats">Candidats <span class="sr-only">(current)</span></a>
+            </li>
 
-      <li class="nav-item active">
-        <a class="nav-link" href="#!/competences">competences <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#!/interets">interets <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#!/langues">langues <span class="sr-only">(current)</span></a>
-      </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#!/diplomes">Diplomes <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#!/experiences">Experiences <span class="sr-only">(current)</span></a>
+            </li>
 
-      <li class="nav-item active">
-        <a class="nav-link" href="#!/profile">Mon profil</a>
-      </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#!/competences">Competences <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#!/langues">Langues <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#!/interets">Interets <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#!/profile">Mon profil</a>
+            </li>
 
-      <li class="nav-item active nav-link text-uppercase font-italic" ng-controller="usernameController" data-ng-model="username">connected as {{ username }}
-      </li>
+            <li class="nav-item active nav-link text-uppercase font-italic" ng-controller="usernameController"
+                data-ng-model="username"> connected as {{ username }}
+            </li>
 
-      <li class="nav-item active" ng-controller="logOutController">
-        <input type="submit" ng-click="logout()" class="nav-link" value="logout"></input>
-      </li>
-    </ul>
-  </div>
+            <li class="nav-item active" ng-controller="logOutController">
+                <input type="submit" ng-click="logout()" class="nav-link" value="logout"></input>
+            </li>
+        </ul>
+    </div>
 </nav>
