@@ -21,7 +21,7 @@ app.controller('listeCandidats', function ($http, $scope) {
         console.log(response)
     });
 })
-.controller('unCandidat', function ($http, $scope,$routeParams) {
+.controller('unCandidat', function ($http, $scope,$routeParams,$cookies) {
     $http({
         method : "GET",
         url : "http://localhost/ProjetCandidat/projetCandidat/backend/Select.php",
@@ -29,7 +29,7 @@ app.controller('listeCandidats', function ($http, $scope) {
             'Accept': '*.*',
             'Content-Type': 'application/json'
         },
-        params:{"idcandid":$routeParams.idcandid},
+        params:{"idcandid":$routeParams.idcandid,"letoken":$cookies.get('letoken')},
     }).then(function onSuccess(response ) {
         $scope.Candidat = response.data.mydb;
         console.log(response)

@@ -4,8 +4,8 @@ header('Content-type: application/json');
 //Connexion a la BDD
 
 $servername = "localhost";
-$username = "youcef";
-$password = "aqwzsx1234";
+$username = "root";
+$password = "";
 $database="mydb";
 
 try {
